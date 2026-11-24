@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Egypt Creative — Production RTL Stylesheet (rtl.css)
+   Preserves original Noryx visual design while delivering seamless Arabic support
+   ========================================================================== */
+
+/* 1. Global Direction & Typographic Hierarchy */
+html[dir="rtl"],
+body.rtl {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Cairo', 'Alexandria', 'Inter', sans-serif;
+  letter-spacing: normal;
+}
+
+body.rtl h1,
+body.rtl h2,
+body.rtl h3,
+body.rtl h4,
+body.rtl h5,
+body.rtl h6,
+body.rtl .headline {
+  font-family: 'Alexandria', 'Cairo', sans-serif;
+  letter-spacing: normal;
+}
+
+/* 2. Layout & Directional Flips */
+body.rtl .float-left {
+  float: right !important;
+}
+body.rtl .float-right {
+  float: left !important;
+}
+body.rtl .text-left {
+  text-align: right !important;
+}
+body.rtl .text-right {
+  text-align: left !important;
+}
+
+/* 3. Navigation & Header RTL */
+body.rtl .main-navigation .navbar-nav {
+  padding-right: 0;
+}
+body.rtl .main-navigation .navbar-nav > li {
+  margin-left: 0;
+  margin-right: 28px;
+}
+body.rtl .main-navigation .navbar-nav > li:first-child {
+  margin-right: 0;
+}
+body.rtl .nav-logo {
+  margin-right: 0;
+  margin-left: auto;
+}
+body.rtl .header-cta {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* 4. Hero Section RTL */
+body.rtl .nx-hr1-cl-text {
+  text-align: right;
+}
+body.rtl .nx-hr-social {
+  left: auto;
+  right: 40px;
+}
+body.rtl .hero-scroll-hint {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+/* 5. Services Section RTL */
+body.rtl .nx-ser1-item-wrap .item-meta a {
+  margin-right: 0;
+  margin-left: 8px;
+}
+body.rtl .nx-ser1-item-wrap .item-icon {
+  margin-right: 0;
+  margin-left: 20px;
+}
+
+/* 6. Portfolio & Case Studies RTL */
+body.rtl .nx-project1-item .item-text {
+  text-align: right;
+}
+body.rtl .nx-project1-item .item-tag {
+  left: auto;
+  right: 24px;
+}
+body.rtl .nx-project1-item .item-arrow {
+  right: auto;
+  left: 24px;
+  transform: rotate(180deg);
+}
+
+/* 7. Working Process & Why Choose Us Cards */
+body.rtl .nx-why-c1-card .card-step-num {
+  left: auto;
+  right: 24px;
+}
+body.rtl .nx-why-c1-card .card-arrow {
+  right: auto;
+  left: 24px;
+  transform: scaleX(-1);
+}
+
+/* 8. Team & Leadership Cards */
+body.rtl .ec-team-card .item-social {
+  right: auto;
+  left: 18px;
+}
+body.rtl .ec-team-card .item-text {
+  text-align: center;
+}
+
+/* 9. Testimonials & Sliders RTL */
+body.rtl .nx-testimonial-item blockquote {
+  text-align: right;
+  border-left: none;
+  border-right: 3px solid #274226;
+  padding-left: 0;
+  padding-right: 24px;
+}
+body.rtl .nx-testi-author-info {
+  margin-left: 0;
+  margin-right: 18px;
+}
+
+/* 10. Contact & Footer RTL */
+body.rtl .nx-footer-col {
+  text-align: right;
+}
+body.rtl .nx-footer-social a {
+  margin-right: 0;
+  margin-left: 14px;
+}
+body.rtl .nx-footer-bottom .copyright {
+  text-align: right;
+}
+body.rtl .nx-footer-bottom .footer-links {
+  text-align: left;
+}
+
+/* 11. Form Elements RTL */
+body.rtl input,
+body.rtl textarea,
+body.rtl select {
+  text-align: right;
+  direction: rtl;
+}
+body.rtl .input-icon {
+  left: auto;
+  right: 16px;
+}
+body.rtl input.has-icon {
+  padding-left: 16px;
+  padding-right: 48px;
+}

@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Egypt Creative — Control Panel</title>
+  <link rel="manifest" href="admin-manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="EC Admin" />
+  <meta name="theme-color" content="#FFB800" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="icon" href="favicon-32x32.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="admin.css?v=20260906-v201" />
+  <style>
+    .dashboard-splash {
+      position: fixed;
+      inset: 0;
+      background: #07090E;
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .dashboard-splash.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .dash-splash-inner {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 24px;
+    }
+    .dash-splash-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .dash-splash-logo .fl-egypt {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #FFB800;
+      letter-spacing: 2.5px;
+    }
+    .dash-splash-logo .fl-sub {
+      font-size: 0.75rem;
+      color: #94A3B8;
+      letter-spacing: 3.5px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .dash-splash-spinner {
+      width: 38px;
+      height: 38px;
+      border: 3px solid rgba(255, 184, 0, 0.15);
+      border-top-color: #FFB800;
+      border-radius: 50%;
+      animation: dashSpin 0.7s linear infinite;
+    }
+    .dash-splash-text {
+      color: #94A3B8;
+      font-size: 0.88rem;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 500;
+    }
+    @keyframes dashSpin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body class="dashboard-page-body">
+
+<!-- Immediate Branded Splash Loader (Prevents blank screen & splash freeze on mobile) -->
+<div id="dashboardSplash" class="dashboard-splash">
+  <div class="dash-splash-inner">
+    <div class="dash-splash-logo">
+      <span class="fl-egypt">EGYPT</span>
+      <span class="fl-sub">CREATIVE</span>
+    </div>
+    <div class="dash-splash-spinner"></div>
+    <p class="dash-splash-text" id="splashStatusText">جاري تحميل لوحة التحكم...</p>
+  </div>
+</div>
+
+<div id="dashboardApp" class="full-page-dashboard">
+
+  <!-- ═══════════ SIDEBAR ═══════════ -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-brand">
+      <div class="sb-logo">
+        <span class="fl-egypt">EGYPT</span>
+        <span class="fl-sub">CREATIVE</span>
+      </div>
+      <span class="admin-badge" id="adminRoleBadge">SUPER ADMIN</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">CONTENT MANAGEMENT</div>
+      <button class="nav-tab active" data-tab="dashboard"><span class="tab-icon">📊</span><span>Overview (مؤشرات الأداء)</span></button>
+      <button class="nav-tab" data-tab="pages"><span class="tab-icon">📝</span><span>Page Content &amp; Headlines</span></button>
+      <button class="nav-tab" data-tab="services"><span class="tab-icon">⚡</span><span>Services (الخدمات)</span></button>
+      <button class="nav-tab" data-tab="process"><span class="tab-icon">🔄</span><span>Process Steps (خطوات العمل)</span></button>
+      <button class="nav-tab" data-tab="navigation"><span class="tab-icon">🧭</span><span>Header Menu Links</span></button>
+      <button class="nav-tab" data-tab="portfolio"><span class="tab-icon">🎨</span><span>Portfolio / Case Studies</span></button>
+      <button class="nav-tab" data-tab="clients"><span class="tab-icon">🏢</span><span>Client Logos (شركاء النجاح)</span></button>
+      <button class="nav-tab" data-tab="team"><span class="tab-icon">👥</span><span>Team (فريق العمل)</span></button>
+      <button class="nav-tab" data-tab="testimonials"><span class="tab-icon">⭐</span><span>Client Reviews (التقييمات)</span></button>
+      <button class="nav-tab" data-tab="footer-social"><span class="tab-icon">🔻</span><span>Footer Links (روابط الفوتر)</span></button>
+
+      <div class="nav-section-title">CRM &amp; LEADS</div>
+      <button class="nav-tab" data-tab="all-leads"><span class="tab-icon">🗂️</span><span>Leads CRM</span></button>
+      <button class="nav-tab" data-tab="inquiries"><span class="tab-icon">📬</span><span>Contact Form Submissions <span id="inqBadge" class="inq-badge" hidden>0</span></span></button>
+      <button class="nav-tab" data-tab="whatsapp-leads"><span class="tab-icon">💬</span><span>WhatsApp Clicks <span id="waBadge" class="inq-badge" hidden>0</span></span></button>
+
+      <div class="nav-section-title">ANALYTICS &amp; MEDIA</div>
+      <button class="nav-tab" data-tab="analytics"><span class="tab-icon">📈</span><span>Analytics Reports</span></button>
+      <button class="nav-tab" data-tab="media"><span class="tab-icon">📂</span><span>Media Library</span></button>
+      <button class="nav-tab" data-tab="seo"><span class="tab-icon">🔍</span><span>SEO &amp; Meta</span></button>
+
+      <div class="nav-section-title">SYSTEM</div>
+      <button class="nav-tab" data-tab="users" id="tabUsersNav" hidden><span class="tab-icon">👤</span><span>User Accounts</span></button>
+      <button class="nav-tab" data-tab="tracking-settings"><span class="tab-icon">📡</span><span>WhatsApp &amp; Tracking</span></button>
+      <button class="nav-tab" data-tab="email-security" id="tabEmailNav" hidden><span class="tab-icon">📧</span><span>Email &amp; Security</span></button>
+      <button class="nav-tab" data-tab="settings"><span class="tab-icon">⚙️</span><span>System Settings</span></button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="index.html" target="_blank" class="btn-view-site">👁️ View Website</a>
+      <button id="logoutBtn" class="btn-logout">Logout 🔒</button>
+    </div>
+  </aside>
+
+  <!-- Mobile Sidebar Backdrop -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <!-- ═══════════ MAIN CONTENT ═══════════ -->
+  <main class="admin-main">
+
+    <header class="admin-topbar">
+      <div class="topbar-title">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <button class="mobile-sidebar-toggle" id="sidebarToggle" aria-label="Toggle Menu">☰ Navigation</button>
+          <h1 id="pageTitle">Dashboard Overview</h1>
+        </div>
+        <p id="pageDesc">Welcome to Egypt Creative CMS. Review website traffic, leads, and manage content.</p>
+      </div>
+      <div class="topbar-actions">
+        <span class="live-status-pill"><span class="pulse-dot"></span> System Live</span>
+        <button id="btnNotifyToggle" class="btn-quick btn-notify-toggle" title="Enable Live Alerts / تفعيل الإشعارات الصوتية">🔔 Alerts: On</button>
+        <button id="btnPwaInstall" class="btn-quick btn-pwa-install" style="display:none;" title="Install on Mobile / تثبيت التطبيق">📲 Install App</button>
+        <button id="refreshDataBtn" class="btn-quick">🔄 Refresh</button>
+      </div>
+    </header>
+
+    <!-- ═══ TAB: DASHBOARD OVERVIEW ═══ -->
+    <section id="tab-dashboard" class="tab-content active">
+
+      <!-- Quick Actions Hub: Instant Add & Manage from Mobile & Desktop -->
+      <div class="mobile-quick-actions-card">
+        <div class="quick-actions-title">⚡ إضافة وإدارة سريعة / QUICK ACTIONS</div>
+        <div class="mobile-quick-actions-grid">
+          <button type="button" class="mob-quick-btn" onclick="openSectionTab('portfolio', true)">
+            <span class="mob-quick-icon">🎨</span>
+            <span class="mob-quick-label">+ إضافة مشروع</span>
+          </button>
+          <button type="button" class="mob-quick-btn" onclick="openSectionTab('clients', true)">
+            <span class="mob-quick-icon">🏢</span>
+            <span class="mob-quick-label">+ إضافة عميل</span>
+          </button>
+          <button type="button" class="mob-quick-btn" onclick="openSectionTab('services', true)">
+            <span class="mob-quick-icon">⚡</span>
+            <span class="mob-quick-label">+ إضافة خدمة</span>
+          </button>
+          <button type="button" class="mob-quick-btn" onclick="openSectionTab('testimonials', true)">
+            <span class="mob-quick-icon">⭐</span>
+            <span class="mob-quick-label">+ إضافة رأي</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="kpi-grid-8">
+        <div class="kpi-card"><span class="kpi-icon">👥</span><div class="kpi-meta"><span class="kpi-val" id="kpiTotalVisitors">0</span><span class="kpi-lbl">1. Total Visits</span></div></div>
+        <div class="kpi-card"><span class="kpi-icon">🔑</span><div class="kpi-meta"><span class="kpi-val" id="kpiUniqueVisitors">0</span><span class="kpi-lbl">2. Unique Visitors</span></div></div>
+        <div class="kpi-card"><span class="kpi-icon">📅</span><div class="kpi-meta"><span class="kpi-val" id="kpiVisitorsToday">0</span><span class="kpi-lbl">3. Today's Visitors</span></div></div>
+        <div class="kpi-card"><span class="kpi-icon">📊</span><div class="kpi-meta"><span class="kpi-val" id="kpiVisitorsWeek">0</span><span class="kpi-lbl">4. This Week's Visitors</span></div></div>
+        <div class="kpi-card"><span class="kpi-icon">📆</span><div class="kpi-meta"><span class="kpi-val" id="kpiVisitorsMonth">0</span><span class="kpi-lbl">5. This Month's Visitors</span></div></div>
+        <div class="kpi-card highlight-gold"><span class="kpi-icon">🗂️</span><div class="kpi-meta"><span class="kpi-val" id="kpiTotalLeads">0</span><span class="kpi-lbl">6. Total Leads</span></div></div>
+        <div class="kpi-card"><span class="kpi-icon">✨</span><div class="kpi-meta"><span class="kpi-val" id="kpiNewLeads">0</span><span class="kpi-lbl">7. New Leads</span></div></div>
+        <div class="kpi-card"><span class="kpi-icon">📲</span><div class="kpi-meta"><span class="kpi-val" id="kpiWaClicks">0</span><span class="kpi-lbl">8. WhatsApp Clicks</span></div></div>
+        <div class="kpi-card"><span class="kpi-icon">💬</span><div class="kpi-meta"><span class="kpi-val" id="kpiWaLeads">0</span><span class="kpi-lbl">9. WhatsApp Leads</span></div></div>
+        <div class="kpi-card"><span class="kpi-icon">📬</span><div class="kpi-meta"><span class="kpi-val" id="kpiContactLeads">0</span><span class="kpi-lbl">10. Contact Form Leads</span></div></div>
+        <div class="kpi-card"><span class="kpi-icon">🎨</span><div class="kpi-meta"><span class="kpi-val" id="kpiProjects">0</span><span class="kpi-lbl">11. Portfolio Projects</span></div></div>
+        <div class="kpi-card"><span class="kpi-icon">👤</span><div class="kpi-meta"><span class="kpi-val" id="kpiAdminUsers">0</span><span class="kpi-lbl">12. Admin Users</span></div></div>
+      </div>
+
+      <div class="charts-row">
+        <div class="chart-card"><h3>📈 Visitors &amp; Leads Over Time</h3><div class="chart-box"><canvas id="chartVisitorsOverTime"></canvas></div></div>
+        <div class="chart-card"><h3>🎯 Lead Traffic Sources</h3><div class="chart-box"><canvas id="chartTrafficSources"></canvas></div></div>
+      </div>
+
+      <div class="dashboard-split-row">
+        <div class="admin-panel-card">
+          <h3 class="panel-section-title">📊 Lead Conversion Funnel</h3>
+          <div class="funnel-container">
+            <div class="funnel-step"><span class="funnel-name">Website Visitors</span><span class="funnel-num" id="fnVisitors">0</span></div>
+            <div class="funnel-step"><span class="funnel-name">Lead Interactions</span><span class="funnel-num" id="fnInteractions">0</span></div>
+            <div class="funnel-step"><span class="funnel-name">Contacted</span><span class="funnel-num" id="fnContacted">0</span></div>
+            <div class="funnel-step"><span class="funnel-name">Qualified Leads</span><span class="funnel-num" id="fnQualified">0</span></div>
+            <div class="funnel-step highlight"><span class="funnel-name">Converted Clients</span><span class="funnel-num" id="fnConverted">0</span></div>
+          </div>
+        </div>
+        <div class="admin-panel-card">
+          <h3 class="panel-section-title">⚡ Recent System Activity</h3>
+          <div class="activity-feed" id="dashActivityFeed"><p style="color:var(--text2);">No recent activity recorded.</p></div>
+        </div>
+      </div>
+
+      <div class="admin-panel-card" style="margin-top:1.5rem;">
+        <h3 class="panel-section-title">📄 Most Visited Pages</h3>
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead><tr><th>Page Path</th><th>Total Views</th><th>Share of Traffic</th></tr></thead>
+            <tbody id="dashTopPagesTable"><tr><td colspan="3" style="color:var(--text2); text-align:center;">No visit data collected yet.</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: ANALYTICS ═══ -->
+    <section id="tab-analytics" class="tab-content">
+      <div class="filter-bar">
+        <span style="color:var(--text2); font-weight:600;">Time Period:</span>
+        <button class="btn-filter active" data-range="7days">Last 7 Days</button>
+        <button class="btn-filter" data-range="today">Today</button>
+        <button class="btn-filter" data-range="30days">Last 30 Days</button>
+        <button class="btn-filter" data-range="this_month">This Month</button>
+        <button class="btn-filter" data-range="this_year">This Year</button>
+      </div>
+      <div class="charts-row" style="margin-top:1.5rem;">
+        <div class="chart-card"><h3>📱 Devices Breakdown</h3><div class="chart-box"><canvas id="chartDevices"></canvas></div></div>
+        <div class="chart-card"><h3>🌐 Page Views Breakdown</h3><div class="chart-box"><canvas id="chartPageviews"></canvas></div></div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: ALL LEADS ═══ -->
+    <section id="tab-all-leads" class="tab-content">
+      <div class="content-header">
+        <h2>All Leads CRM Feed</h2>
+        <button id="exportAllLeadsBtn" class="btn-admin-add">📥 Export CSV</button>
+      </div>
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead><tr><th>Lead Code</th><th>Type</th><th>Source / Contact</th><th>Page</th><th>Date &amp; Time</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="allLeadsTable"><tr><td colspan="7" style="color:var(--text2); text-align:center;">No leads recorded yet.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: WHATSAPP LEADS ═══ -->
+    <section id="tab-whatsapp-leads" class="tab-content">
+      <!-- Lead Edit — inline in section, no modal -->
+      <div id="waLeadEditView" hidden>
+        <div class="inline-form-header">
+          <button class="btn-back" id="cancelWaLeadEdit">← Back to WhatsApp Leads</button>
+          <h2>Edit Lead Status</h2>
+        </div>
+        <div class="admin-panel-card" style="max-width:560px;">
+          <form id="leadForm">
+            <input type="hidden" id="editLeadId" />
+            <input type="hidden" id="editLeadType" value="whatsapp" />
+            <div class="form-group">
+              <label>Lead Code</label>
+              <input type="text" id="leadCodeDisplay" readonly style="background:#0a0e17; cursor:default;" />
+            </div>
+            <div class="form-group">
+              <label for="leadStatusSelect">Pipeline Status</label>
+              <select id="leadStatusSelect">
+                <option value="New">New Lead</option>
+                <option value="Contacted">Contacted</option>
+                <option value="Qualified">Qualified</option>
+                <option value="Converted">Converted Client</option>
+                <option value="Not Interested">Not Interested</option>
+                <option value="Closed">Closed / Archived</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="leadNotesInput">Internal CRM Notes</label>
+              <textarea id="leadNotesInput" rows="4" placeholder="Add internal follow-up notes..."></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn-admin-secondary" id="cancelWaLeadEdit2">Cancel</button>
+              <button type="submit" class="btn-admin-primary">Save Lead Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Lead List -->
+      <div id="waLeadsListView">
+        <div class="content-header">
+          <h2>WhatsApp Lead Interactions</h2>
+          <div class="filter-actions-row">
+            <select id="waStatusFilter" class="admin-select">
+              <option value="All">All Statuses</option>
+              <option value="New">New</option>
+              <option value="Contacted">Contacted</option>
+              <option value="Qualified">Qualified</option>
+              <option value="Converted">Converted</option>
+              <option value="Not Interested">Not Interested</option>
+              <option value="Closed">Closed</option>
+            </select>
+            <input type="text" id="waSearch" class="admin-search-input" placeholder="🔍 Search WA leads..." />
+            <button id="exportWaLeadsBtn" class="btn-admin-add">📥 Export CSV</button>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead><tr><th>Lead ID</th><th>Date &amp; Time</th><th>Page Location</th><th>Device</th><th>Source</th><th>Status</th><th>Notes</th><th>Actions</th></tr></thead>
+            <tbody id="waLeadsTable"><tr><td colspan="8" style="color:var(--text2); text-align:center;">No WhatsApp interactions recorded yet.</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: CONTACT INQUIRIES ═══ -->
+    <section id="tab-inquiries" class="tab-content">
+      <div class="content-header">
+        <h2>Lead Submissions Inbox</h2>
+        <button id="exportInqBtn" class="btn-admin-add">📥 Export CSV</button>
+      </div>
+      <div id="inquiriesList"></div>
+    </section>
+
+    <!-- ═══ TAB: PAGES ═══ -->
+    <section id="tab-pages" class="tab-content">
+      <div class="page-selector-row">
+        <button class="btn-page-tab active" data-page="home">🏠 Home Page</button>
+        <button class="btn-page-tab" data-page="about">ℹ️ About Us</button>
+        <button class="btn-page-tab" data-page="contact">📞 Contact &amp; Stats</button>
+      </div>
+
+      <div id="page-home" class="page-edit-section active">
+        <form id="homeForm" class="admin-panel-card" autocomplete="off">
+          <h3 class="panel-section-title">Hero Segment Texts</h3>
+          <div class="form-row-2">
+            <div class="form-group"><label>Hero Badge (English)</label><input type="text" id="heroBadgeEn" /></div>
+            <div class="form-group"><label>Hero Badge (Arabic)</label><input type="text" id="heroBadgeAr" /></div>
+          </div>
+          <div class="form-group"><label>Scroll Slide 1 (English)</label><input type="text" id="heroStep1En" /></div>
+          <div class="form-group"><label>Scroll Slide 1 (Arabic)</label><input type="text" id="heroStep1Ar" /></div>
+          <div class="form-group"><label>Scroll Slide 2 (English)</label><input type="text" id="heroStep2En" /></div>
+          <div class="form-group"><label>Scroll Slide 2 (Arabic)</label><input type="text" id="heroStep2Ar" /></div>
+          <div class="form-group"><label>Scroll Slide 3 (English)</label><input type="text" id="heroStep3En" /></div>
+          <div class="form-group"><label>Scroll Slide 3 (Arabic)</label><input type="text" id="heroStep3Ar" /></div>
+          <div class="form-group"><label>Scroll Slide 4 (English)</label><input type="text" id="heroStep4En" /></div>
+          <div class="form-group"><label>Scroll Slide 4 (Arabic)</label><input type="text" id="heroStep4Ar" /></div>
+          <button type="submit" class="btn-admin-primary">Save Home Page Content</button>
+        </form>
+      </div>
+
+      <div id="page-about" class="page-edit-section">
+        <form id="aboutForm" class="admin-panel-card" autocomplete="off">
+          <h3 class="panel-section-title">About Section Header</h3>
+          <div class="form-row-2">
+            <div class="form-group"><label>About Tag (English)</label><input type="text" id="aboutTagEn" /></div>
+            <div class="form-group"><label>About Tag (Arabic)</label><input type="text" id="aboutTagAr" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>About Main Title (English)</label><input type="text" id="aboutTitleEn" /></div>
+            <div class="form-group"><label>About Main Title (Arabic)</label><input type="text" id="aboutTitleAr" /></div>
+          </div>
+
+          <h3 class="panel-section-title" style="margin-top:1.5rem;">Tab 1: Overview &amp; Story (6 Paragraphs)</h3>
+          <div class="form-group"><label>Slide 1 - Paragraph 1 (English)</label><textarea id="aboutSlide1P1En" rows="2"></textarea></div>
+          <div class="form-group"><label>Slide 1 - Paragraph 1 (Arabic)</label><textarea id="aboutSlide1P1Ar" rows="2"></textarea></div>
+
+          <div class="form-group"><label>Slide 1 - Paragraph 2 (English)</label><textarea id="aboutSlide1P2En" rows="2"></textarea></div>
+          <div class="form-group"><label>Slide 1 - Paragraph 2 (Arabic)</label><textarea id="aboutSlide1P2Ar" rows="2"></textarea></div>
+
+          <div class="form-group"><label>Slide 1 - Paragraph 3 (English)</label><textarea id="aboutSlide1P3En" rows="2"></textarea></div>
+          <div class="form-group"><label>Slide 1 - Paragraph 3 (Arabic)</label><textarea id="aboutSlide1P3Ar" rows="2"></textarea></div>
+
+          <div class="form-group"><label>Slide 1 - Paragraph 4 (English)</label><textarea id="aboutSlide1P4En" rows="2"></textarea></div>
+          <div class="form-group"><label>Slide 1 - Paragraph 4 (Arabic)</label><textarea id="aboutSlide1P4Ar" rows="2"></textarea></div>
+
+          <div class="form-group"><label>Slide 1 - Paragraph 5 (English)</label><textarea id="aboutSlide1P5En" rows="2"></textarea></div>
+          <div class="form-group"><label>Slide 1 - Paragraph 5 (Arabic)</label><textarea id="aboutSlide1P5Ar" rows="2"></textarea></div>
+
+          <div class="form-group"><label>Slide 1 - Paragraph 6 (English)</label><textarea id="aboutSlide1P6En" rows="2"></textarea></div>
+          <div class="form-group"><label>Slide 1 - Paragraph 6 (Arabic)</label><textarea id="aboutSlide1P6Ar" rows="2"></textarea></div>
+
+          <h3 class="panel-section-title" style="margin-top:1.5rem;">Tab 2: Our Vision (Title &amp; 3 Paragraphs)</h3>
+          <div class="form-row-2">
+            <div class="form-group"><label>Vision Title (English)</label><input type="text" id="aboutSlide2TitleEn" /></div>
+            <div class="form-group"><label>Vision Title (Arabic)</label><input type="text" id="aboutSlide2TitleAr" /></div>
+          </div>
+          <div class="form-group"><label>Vision - Paragraph 1 (English)</label><textarea id="aboutSlide2P1En" rows="2"></textarea></div>
+          <div class="form-group"><label>Vision - Paragraph 1 (Arabic)</label><textarea id="aboutSlide2P1Ar" rows="2"></textarea></div>
+
+          <div class="form-group"><label>Vision - Paragraph 2 (English)</label><textarea id="aboutSlide2P2En" rows="2"></textarea></div>
+          <div class="form-group"><label>Vision - Paragraph 2 (Arabic)</label><textarea id="aboutSlide2P2Ar" rows="2"></textarea></div>
+
+          <div class="form-group"><label>Vision - Paragraph 3 (English)</label><textarea id="aboutSlide2P3En" rows="2"></textarea></div>
+          <div class="form-group"><label>Vision - Paragraph 3 (Arabic)</label><textarea id="aboutSlide2P3Ar" rows="2"></textarea></div>
+
+          <h3 class="panel-section-title" style="margin-top:1.5rem;">Tab 3: Our Mission (Title &amp; 5 Paragraphs)</h3>
+          <div class="form-row-2">
+            <div class="form-group"><label>Mission Title (English)</label><input type="text" id="aboutSlide3TitleEn" /></div>
+            <div class="form-group"><label>Mission Title (Arabic)</label><input type="text" id="aboutSlide3TitleAr" /></div>
+          </div>
+          <div class="form-group"><label>Mission - Paragraph 1 (English)</label><textarea id="aboutSlide3P1En" rows="2"></textarea></div>
+          <div class="form-group"><label>Mission - Paragraph 1 (Arabic)</label><textarea id="aboutSlide3P1Ar" rows="2"></textarea></div>
+
+          <div class="form-group"><label>Mission - Paragraph 2 (English)</label><textarea id="aboutSlide3P2En" rows="2"></textarea></div>
+          <div class="form-group"><label>Mission - Paragraph 2 (Arabic)</label><textarea id="aboutSlide3P2Ar" rows="2"></textarea></div>
+
+          <div class="form-group"><label>Mission - Paragraph 3 (English)</label><textarea id="aboutSlide3P3En" rows="2"></textarea></div>
+          <div class="form-group"><label>Mission - Paragraph 3 (Arabic)</label><textarea id="aboutSlide3P3Ar" rows="2"></textarea></div>
+
+          <div class="form-group"><label>Mission - Paragraph 4 (English)</label><textarea id="aboutSlide3P4En" rows="2"></textarea></div>
+          <div class="form-group"><label>Mission - Paragraph 4 (Arabic)</label><textarea id="aboutSlide3P4Ar" rows="2"></textarea></div>
+
+          <div class="form-group"><label>Mission - Paragraph 5 (English)</label><textarea id="aboutSlide3P5En" rows="2"></textarea></div>
+          <div class="form-group"><label>Mission - Paragraph 5 (Arabic)</label><textarea id="aboutSlide3P5Ar" rows="2"></textarea></div>
+
+          <h3 class="panel-section-title" style="margin-top:1.5rem;">2011 Showcase Card</h3>
+          <div class="form-row-2">
+            <div class="form-group"><label>2011 Card Title (English)</label><input type="text" id="aboutCardTitleEn" placeholder="e.g. 15+ Years Excellence" /></div>
+            <div class="form-group"><label>2011 Card Title (Arabic)</label><input type="text" id="aboutCardTitleAr" placeholder="مثال: أكثر من 15 عاماً من التميز" /></div>
+          </div>
+          <div class="form-group"><label>2011 Card Description (English)</label><textarea id="aboutCardDescEn" rows="2"></textarea></div>
+          <div class="form-group"><label>2011 Card Description (Arabic)</label><textarea id="aboutCardDescAr" rows="2"></textarea></div>
+
+          <button type="submit" class="btn-admin-primary" style="margin-top:1rem;">Save About Content</button>
+        </form>
+      </div>
+
+      <div id="page-contact" class="page-edit-section">
+        <form id="contactForm" class="admin-panel-card" autocomplete="off">
+          <h3 class="panel-section-title">Contact Information</h3>
+          <div class="form-row-2">
+            <div class="form-group"><label>Phone Number</label><input type="text" id="contactPhone" /></div>
+            <div class="form-group"><label>WhatsApp Number</label><input type="text" id="contactWhatsapp" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Email Address</label><input type="email" id="contactEmail" /></div>
+            <div class="form-group"><label>Instagram Link</label><input type="text" id="contactInstagram" /></div>
+          </div>
+          <div class="form-actions" style="margin-top:1.5rem;">
+            <button type="submit" class="btn-admin-primary">💾 Save Contacts &amp; Social Links</button>
+          </div>
+        </form>
+
+        <!-- Counter Statistics Dedicated Form -->
+        <div class="admin-panel-card" style="max-width:800px; margin-top:2rem;">
+          <h3 class="panel-section-title">📊 عدادات وإحصائيات الوكالة (Counter Statistics)</h3>
+          <p style="color:var(--text2); font-size:0.85rem; margin-bottom:1.25rem;">
+            هذه الأرقام تظهر في شريط الأرقام المتحركة بالصفحة الرئيسية (العملاء، سنوات الخبرة، الحملات، نسبة الرضا).
+          </p>
+          <form id="counterStatsForm">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label>Clients Served / العملاء (e.g. 2000+)</label>
+                <input type="text" id="statClientsVal" placeholder="2000+" />
+              </div>
+              <div class="form-group">
+                <label>Experience Years / سنوات الخبرة (e.g. 16+)</label>
+                <input type="text" id="statExpVal" placeholder="16+" />
+              </div>
+            </div>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label>Campaigns Run / الحملات (e.g. 3000+)</label>
+                <input type="text" id="statCampaignsVal" placeholder="3000+" />
+              </div>
+              <div class="form-group">
+                <label>Satisfaction Rate / نسبة الرضا (e.g. 98%)</label>
+                <input type="text" id="statSatisfactionVal" placeholder="98%" />
+              </div>
+            </div>
+            <div class="form-actions" style="margin-top:1.5rem;">
+              <button type="submit" id="saveCounterStatsBtn" class="btn-admin-primary" style="background:#FFB800; color:#07090E; font-weight:800;">
+                💾 حفظ العدادات والإحصائيات (Save Counter Statistics)
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: SERVICES (inline list + form views) ═══ -->
+    <section id="tab-services" class="tab-content">
+      <div id="servicesListView">
+        <div class="content-header">
+          <h2>Services Management</h2>
+          <button id="addServiceBtn" class="btn-admin-add">+ Add New Service</button>
+        </div>
+        <div class="portfolio-admin-list" id="servicesList"></div>
+      </div>
+
+      <div id="serviceFormView" hidden>
+        <div class="inline-form-header">
+          <button class="btn-back" id="cancelServiceForm">← Back to Services</button>
+          <h2 id="serviceFormTitle">Add New Service</h2>
+        </div>
+        <form id="serviceForm" class="admin-panel-card" style="max-width:800px;">
+          <input type="hidden" id="editServiceId" />
+          <div class="form-row-2">
+            <div class="form-group"><label>Service Name (English) *</label><input type="text" id="svcNameEn" required /></div>
+            <div class="form-group"><label>Service Name (Arabic) *</label><input type="text" id="svcNameAr" required /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Description (English)</label><textarea id="svcDescEn" rows="3"></textarea></div>
+            <div class="form-group"><label>Description (Arabic)</label><textarea id="svcDescAr" rows="3"></textarea></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Badge Label (English)</label><input type="text" id="svcBadgeEn" /></div>
+            <div class="form-group"><label>Badge Label (Arabic)</label><input type="text" id="svcBadgeAr" /></div>
+          </div>
+          <div class="form-group"><label>Icon SVG Code</label><textarea id="svcIconSvg" rows="3" placeholder="Paste SVG icon code here..."></textarea></div>
+          <div class="form-actions">
+            <button type="button" class="btn-admin-secondary" id="cancelServiceForm2">Cancel</button>
+            <button type="submit" class="btn-admin-primary">Save Service</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: PROCESS STEPS ═══ -->
+    <section id="tab-process" class="tab-content">
+      <div class="content-header">
+        <h2>Process Steps (خطوات العمل)</h2>
+      </div>
+      <div class="admin-panel-card" style="max-width:900px;">
+        <p style="color:var(--text2); margin-bottom:1.5rem;">Manage the 4-step strategic roadmap displayed on the homepage.</p>
+        <form id="processForm">
+          <div class="form-row-2">
+            <div class="form-group"><label>Step 1 Title (EN)</label><input type="text" id="proc1TitleEn" value="Deep Discovery" /></div>
+            <div class="form-group"><label>Step 1 Title (AR)</label><input type="text" id="proc1TitleAr" value="الدراسة والتحليل" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Step 1 Desc (EN)</label><textarea id="proc1DescEn" rows="2">We audit your market, target demographics, and competitors.</textarea></div>
+            <div class="form-group"><label>Step 1 Desc (AR)</label><textarea id="proc1DescAr" rows="2">ندرس علامتك التجارية وجمهورك والمنافسين بعناية لوضع الرؤية الصحيحة.</textarea></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Step 2 Title (EN)</label><input type="text" id="proc2TitleEn" value="Strategy Blueprint" /></div>
+            <div class="form-group"><label>Step 2 Title (AR)</label><input type="text" id="proc2TitleAr" value="بناء الاستراتيجية" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Step 2 Desc (EN)</label><textarea id="proc2DescEn" rows="2">Crafting a bespoke marketing roadmap tailored to your growth goals.</textarea></div>
+            <div class="form-group"><label>Step 2 Desc (AR)</label><textarea id="proc2DescAr" rows="2">نصمم استراتيجية تسويقية مخصصة بأهداف ومؤشرات أداء دقيقة.</textarea></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Step 3 Title (EN)</label><input type="text" id="proc3TitleEn" value="Execution & Launch" /></div>
+            <div class="form-group"><label>Step 3 Title (AR)</label><input type="text" id="proc3TitleAr" value="التنفيذ والإطلاق" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Step 3 Desc (EN)</label><textarea id="proc3DescEn" rows="2">Creative deployment across social media, ads, and video production.</textarea></div>
+            <div class="form-group"><label>Step 3 Desc (AR)</label><textarea id="proc3DescAr" rows="2">تحول فرقنا الإبداعية الاستراتيجية إلى واقع بمحتوى جذاب وإعلانات ممولة.</textarea></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Step 4 Title (EN)</label><input type="text" id="proc4TitleEn" value="Scale & Optimize" /></div>
+            <div class="form-group"><label>Step 4 Title (AR)</label><input type="text" id="proc4TitleAr" value="التطوير والنمو" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Step 4 Desc (EN)</label><textarea id="proc4DescEn" rows="2">Continuous testing, real-time KPI tracking, and aggressive scaling.</textarea></div>
+            <div class="form-group"><label>Step 4 Desc (AR)</label><textarea id="proc4DescAr" rows="2">نتابع الأداء بشكل لحظي ونطور الحملات باستمرار مع تقديم تقارير دورية.</textarea></div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-admin-primary">Save Process Steps</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: NAVIGATION (inline list + form) ═══ -->
+    <section id="tab-navigation" class="tab-content">
+      <div id="navListView">
+        <div class="content-header">
+          <h2>Navigation Links Management</h2>
+          <button id="addNavBtn" class="btn-admin-add">+ Add Nav Item</button>
+        </div>
+        <div class="portfolio-admin-list" id="navList"></div>
+      </div>
+
+      <div id="navFormView" hidden>
+        <div class="inline-form-header">
+          <button class="btn-back" id="cancelNavForm">← Back to Navigation</button>
+          <h2 id="navFormTitle">Add Navigation Item</h2>
+        </div>
+        <form id="navForm" class="admin-panel-card" style="max-width:600px;">
+          <input type="hidden" id="editNavId" />
+          <div class="form-row-2">
+            <div class="form-group"><label>Label (English) *</label><input type="text" id="navLabelEn" required /></div>
+            <div class="form-group"><label>Label (Arabic) *</label><input type="text" id="navLabelAr" required /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Link URL (href) *</label><input type="text" id="navHref" required /></div>
+            <div class="form-group"><label>Target Window</label>
+              <select id="navTarget">
+                <option value="_self">Same Window (_self)</option>
+                <option value="_blank">New Tab (_blank)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-admin-secondary" id="cancelNavForm2">Cancel</button>
+            <button type="submit" class="btn-admin-primary">Save Nav Item</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: PORTFOLIO (inline list + form) ═══ -->
+    <section id="tab-portfolio" class="tab-content">
+      <div id="portfolioListView">
+        <div class="content-header">
+          <h2>Portfolio Projects Showcase</h2>
+          <button id="addPortfolioBtn" class="btn-admin-add">+ Add Project</button>
+        </div>
+        <div class="portfolio-admin-list" id="portfolioList"></div>
+      </div>
+
+      <div id="projectFormView" hidden>
+        <div class="inline-form-header">
+          <button class="btn-back" id="cancelProjectForm">← Back to Portfolio</button>
+          <h2 id="projectFormTitle">Add New Case Study</h2>
+        </div>
+        <form id="projectForm" class="admin-panel-card" style="max-width:900px;">
+          <input type="hidden" id="editProjectId" />
+
+          <!-- COMPANY / CLIENT IDENTITY -->
+          <h3 class="panel-section-title">🏢 Company & Client Identity</h3>
+          <div class="form-row-2">
+            <div class="form-group"><label>Company Name (English) *</label><input type="text" id="projCompanyNameEn" placeholder="e.g. Luxe Properties" required /></div>
+            <div class="form-group"><label>Company Name (Arabic)</label><input type="text" id="projCompanyNameAr" placeholder="مثال: لوكس بروبرتيز" /></div>
+          </div>
+          <div class="form-group">
+            <label>Company Logo URL *</label>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                <input type="text" id="projCompanyLogo" placeholder="Logo image URL or choose from media library" style="flex:1; min-width:220px;" oninput="updateLogoPreview()" />
+                <button type="button" class="btn-admin-primary" style="font-size:0.82rem; padding:8px 14px;" onclick="triggerLogoFileUpload()">📤 Upload New Logo</button>
+                <button type="button" class="btn-admin-secondary" style="font-size:0.82rem; padding:8px 14px;" onclick="openMediaSelector('projCompanyLogo')">📂 Choose From Library</button>
+                <input type="file" id="logoFileInput" accept="image/jpeg,image/png,image/webp,image/gif,image/avif,image/svg+xml" style="display:none;" />
+              </div>
+              <div id="logoPreviewContainer" style="display:none; margin-top:6px; position:relative; width:90px; height:90px; border-radius:50%; overflow:hidden; border:1px solid var(--border); background:#000;">
+                <img id="logoPreviewImg" src="" style="width:100%; height:100%; object-fit:contain;" />
+                <button type="button" style="position:absolute; top:4px; right:4px; background:rgba(0,0,0,0.7); color:#fff; border:none; border-radius:50%; width:20px; height:20px; cursor:pointer; font-size:10px; display:flex; align-items:center; justify-content:center;" onclick="clearLogoImage()" title="Remove logo">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT BASICS -->
+          <h3 class="panel-section-title" style="margin-top:1.5rem;">📌 Project Basics</h3>
+          <div class="form-row-2">
+            <div class="form-group"><label>Project Title (English) *</label><input type="text" id="projTitleEn" placeholder="e.g. Luxe Properties Launch Campaign" required /></div>
+            <div class="form-group"><label>Project Title (Arabic)</label><input type="text" id="projTitleAr" placeholder="عنوان المشروع بالعربية" /></div>
+          </div>
+          <div class="form-row-3">
+            <div class="form-group"><label>Category (English) *</label><input type="text" id="projCategory" placeholder="e.g. REAL ESTATE MARKETING" required /></div>
+            <div class="form-group"><label>Category (Arabic)</label><input type="text" id="projCategoryAr" placeholder="التصنيف بالعربية" /></div>
+            <div class="form-group"><label>Year</label><input type="text" id="projYear" placeholder="2026" /></div>
+          </div>
+          <div class="form-group">
+            <label>URL Slug (e.g. luxe-properties-launch)</label>
+            <input type="text" id="projSlug" placeholder="Auto-generated from title if left empty" />
+          </div>
+
+          <!-- CASE STUDY CONTENT -->
+          <h3 class="panel-section-title" style="margin-top:1.5rem;">📖 Case Study Details</h3>
+          <div class="form-row-2">
+            <div class="form-group"><label>Short Description (English)</label><textarea id="projDescEn" rows="2" placeholder="Brief summary for coverflow card..."></textarea></div>
+            <div class="form-group"><label>Short Description (Arabic)</label><textarea id="projDescAr" rows="2" placeholder="ملخص قصير..."></textarea></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>The Challenge (English)</label><textarea id="projChallengeEn" rows="3" placeholder="What core problem did the brand face?"></textarea></div>
+            <div class="form-group"><label>The Challenge (Arabic)</label><textarea id="projChallengeAr" rows="3" placeholder="التحدي الذي واجهه العميل..."></textarea></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Strategy & Solution (English)</label><textarea id="projSolutionEn" rows="3" placeholder="Our strategic approach and growth plan..."></textarea></div>
+            <div class="form-group"><label>Strategy & Solution (Arabic)</label><textarea id="projSolutionAr" rows="3" placeholder="الإستراتيجية والحل..."></textarea></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Execution (English)</label><textarea id="projExecutionEn" rows="3" placeholder="Creative direction, production & channels..."></textarea></div>
+            <div class="form-group"><label>Execution (Arabic)</label><textarea id="projExecutionAr" rows="3" placeholder="التنفيذ وإدارة الحملة..."></textarea></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Results & Impact (English)</label><textarea id="projResultsEn" rows="3" placeholder="Key outcomes and measurable success..."></textarea></div>
+            <div class="form-group"><label>Results & Impact (Arabic)</label><textarea id="projResultsAr" rows="3" placeholder="النتائج والأثر..."></textarea></div>
+          </div>
+
+          <!-- MEDIA & GALLERY -->
+          <h3 class="panel-section-title" style="margin-top:1.5rem;">🖼️ Media &amp; Gallery</h3>
+          
+          <!-- COVER IMAGE -->
+          <div class="form-group">
+            <label>Cover Image *</label>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                <input type="text" id="projImgUrl" placeholder="/assets/uploads/cover.jpg" style="flex:1; min-width:220px;" oninput="updateCoverPreview()" />
+                <button type="button" class="btn-admin-primary" style="font-size:0.82rem; padding:8px 14px;" onclick="triggerCoverFileUpload()">📤 Upload New Image</button>
+                <button type="button" class="btn-admin-secondary" style="font-size:0.82rem; padding:8px 14px;" onclick="openMediaSelector('projImgUrl')">📂 Choose From Library</button>
+                <input type="file" id="coverFileInput" accept="image/jpeg,image/png,image/webp,image/gif,image/avif,image/svg+xml" style="display:none;" />
+              </div>
+              <div id="coverPreviewContainer" style="display:none; margin-top:6px; position:relative; width:160px; height:100px; border-radius:8px; overflow:hidden; border:1px solid var(--border); background:#000;">
+                <img id="coverPreviewImg" src="" style="width:100%; height:100%; object-fit:cover;" />
+                <button type="button" style="position:absolute; top:4px; right:4px; background:rgba(0,0,0,0.7); color:#fff; border:none; border-radius:50%; width:24px; height:24px; cursor:pointer; font-size:12px; display:flex; align-items:center; justify-content:center;" onclick="clearCoverImage()" title="Remove cover image">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- GALLERY MANAGER -->
+          <div class="form-group">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:8px;">
+              <label style="margin:0; font-weight:700;">Gallery Images &amp; Screenshots</label>
+              <div style="display:flex; gap:8px;">
+                <button type="button" class="btn-admin-primary" style="font-size:0.82rem; padding:8px 14px;" onclick="triggerGalleryMultiUpload()">📤 Upload Images</button>
+                <button type="button" class="btn-admin-secondary" style="font-size:0.82rem; padding:8px 14px;" onclick="openMediaSelector('projGallery')">📂 Choose From Library</button>
+                <input type="file" id="galleryMultiFileInput" accept="image/jpeg,image/png,image/webp,image/gif,image/avif,image/svg+xml" multiple style="display:none;" />
+              </div>
+            </div>
+
+            <!-- Gallery Thumbnails Grid -->
+            <div id="galleryThumbnailsGrid">
+              <p id="galleryEmptyNotice" style="color:var(--text3); font-size:0.85rem; margin:0; width:100%; text-align:center; grid-column:1/-1;">No gallery images added yet. Click "Upload Images" or "Choose From Library" to add project photos.</p>
+            </div>
+
+            <textarea id="projGalleryUrls" style="display:none;"></textarea>
+          </div>
+          <!-- MULTI-VIDEO GALLERY MANAGER -->
+          <div class="form-group">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:8px;">
+              <label style="margin:0; font-weight:700;">Project Videos (Upload Multiple Reels / Videos / URLs) *</label>
+              <div style="display:flex; gap:8px;">
+                <button type="button" class="btn-admin-primary" style="font-size:0.82rem; padding:8px 14px;" onclick="triggerVideoMultiUpload()">📤 Upload Videos</button>
+                <button type="button" class="btn-admin-secondary" style="font-size:0.82rem; padding:8px 14px;" onclick="openMediaSelector('projVideoManager')">📂 Choose From Library</button>
+                <input type="file" id="videoMultiFileInput" accept="video/mp4,video/webm,video/ogg,video/quicktime,video/*,.mp4,.mov,.webm" multiple style="display:none;" />
+              </div>
+            </div>
+
+            <!-- Manual URL Add Row -->
+            <div style="display:flex; gap:8px; margin-bottom:8px;">
+              <input type="text" id="projVideoUrlInput" placeholder="Paste YouTube / Vimeo / Video URL or filename" style="flex:1;" />
+              <button type="button" class="btn-admin-secondary" style="padding:8px 14px; font-size:0.82rem;" onclick="addVideoUrlFromInput()">+ Add Video</button>
+            </div>
+
+            <!-- Video Thumbnails Grid -->
+            <div id="videoThumbnailsGrid">
+              <p id="videoEmptyNotice" style="color:var(--text3); font-size:0.85rem; margin:0; width:100%; text-align:center; grid-column:1/-1;">No project videos added yet. Click "Upload Videos" or paste video URLs above.</p>
+            </div>
+
+            <textarea id="projVideoUrls" style="display:none;"></textarea>
+          </div>
+
+          <!-- METRICS & LINKS -->
+          <h3 class="panel-section-title" style="margin-top:1.5rem;">📊 Key Performance Metrics</h3>
+          <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:1rem;">
+            <div class="res-row"><input type="text" id="resVal1" placeholder="Val 1 (e.g. +340%)" /><input type="text" id="resLbl1En" placeholder="Metric 1 Label EN" /><input type="text" id="resLbl1Ar" placeholder="Metric 1 Label AR" /></div>
+            <div class="res-row"><input type="text" id="resVal2" placeholder="Val 2 (e.g. 2.4M Views)" /><input type="text" id="resLbl2En" placeholder="Metric 2 Label EN" /><input type="text" id="resLbl2Ar" placeholder="Metric 2 Label AR" /></div>
+            <div class="res-row"><input type="text" id="resVal3" placeholder="Val 3 (e.g. 18.5x ROI)" /><input type="text" id="resLbl3En" placeholder="Metric 3 Label EN" /><input type="text" id="resLbl3Ar" placeholder="Metric 3 Label AR" /></div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group"><label>Website / Live Project Link</label><input type="text" id="projWebsiteUrl" placeholder="https://clientwebsite.com" /></div>
+            <div class="form-group"><label>Case Study PDF / Link</label><input type="text" id="projCaseStudyUrl" placeholder="https://domain.com/case-study.pdf" /></div>
+          </div>
+
+          <div class="form-row-3" style="margin-top:1rem; align-items:center;">
+            <div class="form-group"><label>Display Order</label><input type="number" id="projDisplayOrder" value="0" /></div>
+            <div class="form-group" style="margin-top:1.5rem;">
+              <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer;">
+                <input type="checkbox" id="projFeatured" style="width:auto;" />
+                <span style="color:#fff; font-weight:600;">Featured Case Study</span>
+              </label>
+            </div>
+            <div class="form-group" style="margin-top:1.5rem;">
+              <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer;">
+                <input type="checkbox" id="projActive" checked style="width:auto;" />
+                <span style="color:#fff; font-weight:600;">Active / Published</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn-admin-secondary" id="cancelProjectForm2">Cancel</button>
+            <button type="submit" class="btn-admin-primary">Save Case Study</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: CLIENTS (inline list + form) ═══ -->
+    <section id="tab-clients" class="tab-content">
+      <div id="clientsListView">
+        <div class="content-header">
+          <h2>Brand Partner Clients</h2>
+          <button id="addClientBtn" class="btn-admin-add">+ Add Client</button>
+        </div>
+        <div class="clients-grid" id="clientsGrid"></div>
+      </div>
+
+      <div id="clientFormView" hidden>
+        <div class="inline-form-header">
+          <button class="btn-back" id="cancelClientForm">← Back to Clients</button>
+          <h2 id="clientFormTitle">Add Client Logo</h2>
+        </div>
+        <form id="clientForm" class="admin-panel-card" style="max-width:600px;">
+          <input type="hidden" id="editClientId" />
+          <div class="form-group"><label>Brand Name *</label><input type="text" id="clientName" required /></div>
+          <div class="form-group"><label>Website URL</label><input type="url" id="clientWebsiteUrl" placeholder="https://example.com" /></div>
+          <div class="form-group">
+            <label>Logo Image</label>
+            <div style="display:flex; gap:8px;">
+              <input type="text" id="clientLogoUrl" placeholder="No file selected — choose from library" style="flex:1;" />
+              <button type="button" class="btn-admin-secondary" onclick="openMediaSelector('clientLogoUrl')">Choose Image</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Marquee Display Style</label>
+            <select id="clientLogoStyle">
+              <option value="auto">Smart Adapt</option>
+              <option value="original">Original Colors</option>
+              <option value="white">Force White</option>
+              <option value="dark">Force Dark</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-admin-secondary" id="cancelClientForm2">Cancel</button>
+            <button type="submit" class="btn-admin-primary">Save Client Partner</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: TEAM (inline list + form) ═══ -->
+    <section id="tab-team" class="tab-content">
+      <div id="teamListView">
+        <div class="team-global-settings-card" style="background:var(--surface2); border:1px solid var(--border-gold); border-radius:12px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; display:flex; align-items:center; justify-space-between; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <h3 style="font-family:'Syne',sans-serif; font-size:1.1rem; color:var(--gold); margin-bottom:0.25rem;">👁️ MEET THE TEAM SECTION VISIBILITY</h3>
+            <p style="font-size:0.85rem; color:var(--text2); margin:0;">Click the button on the right to SHOW or HIDE the Team section on the homepage at any time.</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span id="teamSectionStatusBadge" style="font-weight:800; font-size:0.85rem; padding:6px 14px; border-radius:20px; background:rgba(239,68,68,0.15); color:#EF4444;">SECTION OFF (HIDDEN)</span>
+            <button id="toggleTeamSectionBtn" type="button" class="btn-admin-primary" style="font-weight:700; padding:8px 16px;">🔄 Toggle [ SHOW / HIDE ]</button>
+          </div>
+        </div>
+
+        <div class="content-header">
+          <h2>Agency Team Members</h2>
+          <button id="addTeamBtn" class="btn-admin-add">+ Add Member</button>
+        </div>
+        <div class="clients-grid" id="teamGrid"></div>
+      </div>
+
+      <div id="teamFormView" hidden>
+        <div class="inline-form-header">
+          <button class="btn-back" id="cancelTeamForm">← Back to Team</button>
+          <h2 id="teamFormTitle">Add Team Member</h2>
+        </div>
+        <form id="teamForm" class="admin-panel-card" style="max-width:700px;">
+          <input type="hidden" id="editTeamId" />
+          <div class="form-row-2">
+            <div class="form-group"><label>Full Name (English) *</label><input type="text" id="teamNameEn" required /></div>
+            <div class="form-group"><label>Full Name (Arabic)</label><input type="text" id="teamNameAr" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Role / Title (English)</label><input type="text" id="teamRoleEn" /></div>
+            <div class="form-group"><label>Role / Title (Arabic)</label><input type="text" id="teamRoleAr" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>LinkedIn Profile URL</label><input type="url" id="teamLinkedin" /></div>
+            <div class="form-group"><label>Instagram Profile URL</label><input type="url" id="teamInstagram" /></div>
+          </div>
+          <div class="form-group">
+            <label>Profile Photo</label>
+            <div style="display:flex; gap:8px;">
+              <input type="text" id="teamPhotoUrl" placeholder="No file selected — choose from library" style="flex:1;" />
+              <button type="button" class="btn-admin-secondary" onclick="openMediaSelector('teamPhotoUrl')">Choose Image</button>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-admin-secondary" id="cancelTeamForm2">Cancel</button>
+            <button type="submit" class="btn-admin-primary">Save Team Member</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: TESTIMONIALS (inline list + form) ═══ -->
+    <section id="tab-testimonials" class="tab-content">
+      <div id="testiListView">
+        <div class="content-header">
+          <h2>Client Feedback &amp; Reviews</h2>
+          <button id="addTestiBtn" class="btn-admin-add">+ Add Testimonial</button>
+        </div>
+        <div class="portfolio-admin-list" id="testiList"></div>
+      </div>
+
+      <div id="testiFormView" hidden>
+        <div class="inline-form-header">
+          <button class="btn-back" id="cancelTestiForm">← Back to Testimonials</button>
+          <h2 id="testiFormTitle">Add Client Review</h2>
+        </div>
+        <form id="testiForm" class="admin-panel-card" style="max-width:700px;">
+          <input type="hidden" id="editTestiId" />
+          <div class="form-row-2">
+            <div class="form-group"><label>Author Name *</label><input type="text" id="testiAuthor" required /></div>
+            <div class="form-group"><label>Company Name</label><input type="text" id="testiCompany" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Position (English)</label><input type="text" id="testiPosEn" /></div>
+            <div class="form-group"><label>Position (Arabic)</label><input type="text" id="testiPosAr" /></div>
+          </div>
+          <div class="form-group"><label>Review Quote (English) *</label><textarea id="testiQuoteEn" rows="4" required></textarea></div>
+          <div class="form-group"><label>Review Quote (Arabic)</label><textarea id="testiQuoteAr" rows="4"></textarea></div>
+          <div class="form-group">
+            <label>Star Rating</label>
+            <select id="testiRating">
+              <option value="5">5 Stars ★★★★★</option>
+              <option value="4">4 Stars ★★★★☆</option>
+              <option value="3">3 Stars ★★★☆☆</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-admin-secondary" id="cancelTestiForm2">Cancel</button>
+            <button type="submit" class="btn-admin-primary">Save Review</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: FOOTER & SOCIAL ═══ -->
+    <section id="tab-footer-social" class="tab-content">
+      <div class="content-header">
+        <h2>Footer Links &amp; Social Profiles (روابط الفوتر والتواصل)</h2>
+      </div>
+      <div class="admin-panel-card" style="max-width:850px;">
+        <form id="footerSocialForm">
+          <div class="form-row-2">
+            <div class="form-group"><label>Instagram URL</label><input type="url" id="socialInstagram" placeholder="https://instagram.com/egyptcreative" /></div>
+            <div class="form-group"><label>Facebook URL</label><input type="url" id="socialFacebook" placeholder="https://facebook.com/egyptcreative" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>LinkedIn URL</label><input type="url" id="socialLinkedin" placeholder="https://linkedin.com/company/egyptcreative" /></div>
+            <div class="form-group"><label>TikTok URL</label><input type="url" id="socialTiktok" placeholder="https://tiktok.com/@egyptcreative" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Footer Description (EN)</label><textarea id="footerDescEn" rows="2">Leading full-service digital marketing agency based in Cairo, Egypt.</textarea></div>
+            <div class="form-group"><label>Footer Description (AR)</label><textarea id="footerDescAr" rows="2">الوكالة الرائدة في مصر للتسويق الرقمي المتكامل.</textarea></div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-admin-primary">Save Footer &amp; Social</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: MEDIA LIBRARY ═══ -->
+    <section id="tab-media" class="tab-content">
+      <div class="content-header">
+        <h2>Media Files Storage</h2>
+        <div>
+          <input type="file" id="mediaUploadFileInput" accept="image/*,video/*,video/mp4,video/webm,video/ogg,video/quicktime,.mp4,.mov,.webm,.avi" multiple style="display:none;" />
+          <button id="mediaUploadTriggerBtn" class="btn-admin-add" type="button" onclick="document.getElementById('mediaUploadFileInput')?.click()">+ Upload Images &amp; Videos</button>
+        </div>
+      </div>
+
+      <!-- COMPANY / FOLDER CATEGORY FILTER BAR -->
+      <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:1.25rem; background:rgba(255,255,255,0.03); padding:10px 16px; border-radius:10px; border:1px solid rgba(255,184,0,0.2);">
+        <label style="font-weight:700; font-size:0.88rem; color:#FFB800; white-space:nowrap;">📁 Filter Media By Company / Folder:</label>
+        <select id="mediaCompanyFilter" style="flex:1; min-width:220px; padding:8px 14px; border-radius:6px; background:#07090E; color:#fff; border:1px solid rgba(255,255,255,0.15);" onchange="filterMediaLibraryByCompany(this.value)">
+          <option value="all">📁 All Media Files (جميع الصور والملفات)</option>
+          <option value="azzam-real-estate">🏢 Azzam Real Estate (عزام للاستثمار والعقارات)</option>
+          <option value="egypt-builders">🏗️ Egypt Builders (إيجيبت بيلدرز للمقاولات)</option>
+          <option value="next-academy">🎓 Next Academy (أكاديمية نكست للإدارة)</option>
+          <option value="ramadan-majlis">🌙 Ramadan Majlis (مجلس رمضان للفعاليات)</option>
+          <option value="smile-care-clinics">🦷 Smile Care Clinics (عيادات سمايل كير)</option>
+          <option value="the-smile-center">✨ The Smile Center (مركز ذا سمايل)</option>
+          <option value="german-bugs-control">🛡️ German Pest Control (الشركة الألمانية)</option>
+          <option value="egyptian-center">🏛️ Egyptian Center for Training (المركز المصري)</option>
+          <option value="badae-logistics">📦 Badae Logistics (شركة بضائع للشحن)</option>
+          <option value="hawawshi-el-rayyan">🍔 El-Rayyan Hawawshi (حواوشي الريان)</option>
+          <option value="doaa-pharmacy">💊 Doaa Pharmacy (صيدلية د. دعاء)</option>
+          <option value="sultan-almandy">🍗 Sultan Almandy (مطعم سلطان المندي)</option>
+          <option value="fish-day">🐟 Fish Day (مطعم يوم السمك)</option>
+          <option value="logo">🖼️ Client Logos Only (اللوجوهات فقط)</option>
+        </select>
+      </div>
+
+      <div class="media-library-grid" id="mediaLibraryGrid"></div>
+
+      <!-- Media Picker -->
+      <div id="mediaPickerOverlay" style="display:none; position:fixed; inset:0; z-index:12000; background:rgba(0,0,0,0.8); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:1.5rem;">
+        <div style="background:#0F141F; border:1px solid rgba(255,184,0,0.25); border-radius:16px; padding:2rem; width:100%; max-width:750px; max-height:90vh; overflow-y:auto; box-shadow:0 25px 60px rgba(0,0,0,0.9);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.08);">
+            <h3 style="font-size:1.2rem; font-weight:700; color:#fff;">Select from Media Library</h3>
+            <button onclick="closeMediaPicker()" style="background:none; border:none; color:#94A3B8; font-size:1.5rem; cursor:pointer;">×</button>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:1.5rem; flex-wrap:wrap;">
+            <select id="pickerCompanyFilter" style="flex:1; min-width:200px; padding:8px 12px; border-radius:6px; background:#07090E; color:#fff; border:1px solid rgba(255,255,255,0.15);" onchange="filterPickerMediaByCompany(this.value)">
+              <option value="all">📁 All Companies (جميع الشركات)</option>
+              <option value="azzam-real-estate">🏢 Azzam Real Estate</option>
+              <option value="egypt-builders">🏗️ Egypt Builders</option>
+              <option value="next-academy">🎓 Next Academy</option>
+              <option value="ramadan-majlis">🌙 Ramadan Majlis</option>
+              <option value="smile-care-clinics">🦷 Smile Care Clinics</option>
+              <option value="the-smile-center">✨ The Smile Center</option>
+              <option value="german-bugs-control">🛡️ German Pest Control</option>
+              <option value="egyptian-center">🏛️ Egyptian Center for Training</option>
+              <option value="badae-logistics">📦 Badae Logistics</option>
+              <option value="hawawshi-el-rayyan">🍔 El-Rayyan Hawawshi</option>
+              <option value="doaa-pharmacy">💊 Doaa Pharmacy</option>
+              <option value="sultan-almandy">🍗 Sultan Almandy</option>
+              <option value="fish-day">🐟 Fish Day</option>
+            </select>
+            <input type="file" id="pickerUploadFileInput" accept="image/*" style="display:none;" />
+            <button id="pickerUploadTriggerBtn" class="btn-admin-primary" style="max-width:200px;">+ Upload New Image</button>
+          </div>
+          <div class="media-library-grid" id="pickerMediaLibraryGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: SEO ═══ -->
+    <section id="tab-seo" class="tab-content">
+      <div class="admin-panel-card">
+        <h3 class="panel-section-title">🔍 SEO &amp; Meta Settings</h3>
+        <form id="seoForm">
+          <div class="form-row-2">
+            <div class="form-group"><label>Meta Title (English)</label><input type="text" id="seoTitleEn" /></div>
+            <div class="form-group"><label>Meta Title (Arabic)</label><input type="text" id="seoTitleAr" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Meta Description (English)</label><textarea id="seoDescEn" rows="3"></textarea></div>
+            <div class="form-group"><label>Meta Description (Arabic)</label><textarea id="seoDescAr" rows="3"></textarea></div>
+          </div>
+          <div class="form-group"><label>SEO Keywords (comma separated)</label><input type="text" id="seoKeywords" /></div>
+          <div class="form-row-2">
+            <div class="form-group"><label>OpenGraph Title (English)</label><input type="text" id="seoOgTitleEn" /></div>
+            <div class="form-group"><label>OpenGraph Title (Arabic)</label><input type="text" id="seoOgTitleAr" /></div>
+          </div>
+          <div class="form-group"><label>Canonical URL</label><input type="text" id="seoCanonical" placeholder="https://egyptcreative.com/" /></div>
+          <button type="submit" class="btn-admin-primary">💾 Save SEO Settings</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: SITE SETTINGS ═══ -->
+    <section id="tab-settings" class="tab-content">
+      <div class="admin-panel-card">
+        <h3 class="panel-section-title">🔐 Change Admin Password</h3>
+        <form id="changePassForm" style="max-width:600px;">
+          <div class="form-group"><label>Current Password *</label><input type="password" id="currentPass" required /></div>
+          <div class="form-row-2">
+            <div class="form-group"><label>New Password (Min 12 chars) *</label><input type="password" id="newPass" required minlength="12" /></div>
+            <div class="form-group"><label>Confirm New Password *</label><input type="password" id="confirmPass" required minlength="12" /></div>
+          </div>
+          <p id="passChangeErr" style="color:#F87171; font-size:0.85rem; margin-bottom:0.5rem;" hidden></p>
+          <button type="submit" class="btn-admin-primary">🔐 Update Password</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: EMAIL & SECURITY (Super Admin) ═══ -->
+    <section id="tab-email-security" class="tab-content">
+      <div class="admin-panel-card" style="margin-bottom:1.5rem;">
+        <h3 class="panel-section-title">📧 System Notification Email</h3>
+        <form id="notifyEmailForm" style="max-width:600px;">
+          <div class="form-group">
+            <label>Primary Security &amp; System Notification Destination</label>
+            <input type="email" id="sysNotifyEmailInput" value="momenyahia8@gmail.com" required />
+            <span style="font-size:0.78rem; color:var(--text3); margin-top:4px; display:block;">Security alerts, failed login thresholds, and admin audit events are sent to this address.</span>
+          </div>
+          <button type="submit" class="btn-admin-primary">💾 Save Notification Email</button>
+        </form>
+      </div>
+
+      <div class="admin-panel-card">
+        <h3 class="panel-section-title">⚙️ SMTP Server Configuration</h3>
+        <form id="smtpForm">
+          <div class="form-row-2">
+            <div class="form-group"><label>SMTP Host</label><input type="text" id="smtpHost" placeholder="smtp.hostinger.com" /></div>
+            <div class="form-group"><label>SMTP Port</label><input type="text" id="smtpPort" placeholder="587" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>SMTP Username / Email</label><input type="text" id="smtpUser" placeholder="noreply@egyptcreative.com" /></div>
+            <div class="form-group"><label>SMTP Password</label><input type="password" id="smtpPass" placeholder="••••••••••••" /></div>
+          </div>
+          <div class="form-row-3">
+            <div class="form-group">
+              <label>Encryption</label>
+              <select id="smtpEncrypt">
+                <option value="tls">TLS (Port 587)</option>
+                <option value="ssl">SSL (Port 465)</option>
+                <option value="none">None (Port 25)</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Sender Name</label><input type="text" id="smtpFromName" value="Egypt Creative" /></div>
+            <div class="form-group"><label>Sender Email</label><input type="email" id="smtpFromEmail" value="noreply@egyptcreative.com" /></div>
+          </div>
+          <div style="display:flex; gap:12px; margin-top:1.5rem; flex-wrap:wrap;">
+            <button type="submit" class="btn-admin-primary">💾 Save SMTP Settings</button>
+            <button type="button" id="testSmtpBtn" class="btn-admin-secondary">✉️ Send Test Email to momenyahia8@gmail.com</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: TRACKING SETTINGS ═══ -->
+    <section id="tab-tracking-settings" class="tab-content">
+      <div class="admin-panel-card">
+        <h3 class="panel-section-title">📡 WhatsApp &amp; Tracking Setup</h3>
+        <form id="trackingSettingsForm" style="max-width:600px;">
+          <div class="form-group"><label>WhatsApp Number (International, without +)</label><input type="text" id="trackWaNumber" /></div>
+          <div class="form-group"><label>Default Pre-filled WhatsApp Message</label><input type="text" id="trackWaMsg" /></div>
+          <button type="submit" class="btn-admin-primary">💾 Save Tracking Config</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: AUDIT LOGS ═══ -->
+    <section id="tab-audit" class="tab-content">
+      <div class="content-header">
+        <h2>System Activity Logs (سجل العمليات والنشاط)</h2>
+      </div>
+      <div class="admin-panel-card">
+        <div id="auditLogsContainer" style="font-family:monospace; font-size:0.85rem; max-height:550px; overflow-y:auto; line-height:1.6; color:#E2E8F0;">
+          <p style="color:var(--text3); text-align:center; padding:2rem;">Loading audit trail logs...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: USERS & ROLES RBAC ═══ -->
+    <section id="tab-users" class="tab-content">
+      <div class="content-header">
+        <h2>Team Accounts &amp; Access Roles (إدارة فريق العمل والصلاحيات)</h2>
+        <button id="addNewUserBtn" class="btn-admin-add">+ Add Team Member</button>
+      </div>
+
+      <!-- USERS LIST -->
+      <div id="usersListView" class="admin-panel-card">
+        <div id="usersTableWrap" style="overflow-x:auto;">
+          <table class="admin-table" style="width:100%; border-collapse:collapse; text-align:left;">
+            <thead>
+              <tr style="border-bottom:1px solid var(--border); color:var(--text2); font-size:0.85rem;">
+                <th style="padding:10px 14px;">User</th>
+                <th style="padding:10px 14px;">Email</th>
+                <th style="padding:10px 14px;">Role</th>
+                <th style="padding:10px 14px;">Status</th>
+                <th style="padding:10px 14px; text-align:right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- USER EDIT/CREATE FORM -->
+      <div id="userFormView" class="admin-panel-card" style="display:none; max-width:700px; margin-top:1.5rem;">
+        <h3 id="userFormTitle" class="panel-section-title">Add New Team Member</h3>
+        <form id="userForm">
+          <input type="hidden" id="editUserId" />
+          <div class="form-row-2">
+            <div class="form-group"><label for="userName">Full Name *</label><input type="text" id="userName" required /></div>
+            <div class="form-group"><label for="userUsername">Username (for login) *</label><input type="text" id="userUsername" required /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label for="userEmail">Email Address *</label><input type="email" id="userEmail" required /></div>
+            <div class="form-group"><label for="userPassword">Password (leave blank to keep current)</label><input type="password" id="userPassword" placeholder="••••••••" /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="userRole">Access Permission Level</label>
+              <select id="userRole">
+                <option value="super_admin">Super Admin — Full Access to Everything</option>
+                <option value="editor">Editor — Custom Section Permissions (Selected Below)</option>
+                <option value="sales">Sales / Leads — CRM &amp; Lead Inbox Only</option>
+                <option value="viewer">Viewer — Read-Only Access</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="userStatusSelect">Account Status</label>
+              <select id="userStatusSelect">
+                <option value="1">Active Account</option>
+                <option value="0">Inactive / Suspended</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- GRANULAR SECTION PERMISSIONS FOR EDITORS -->
+          <div id="userPermissionsGroup" style="margin-top:1rem; padding:14px 18px; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:12px;">
+            <label style="font-weight:700; color:var(--text); display:block; margin-bottom:8px;">Allowed Sections &amp; Permissions (صلاحيات الأقسام المتاحة):</label>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:10px;">
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.9rem;"><input type="checkbox" class="user-perm-chk" value="pages" checked /> 📝 Pages &amp; Text</label>
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.9rem;"><input type="checkbox" class="user-perm-chk" value="services" checked /> ⚡ Services</label>
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.9rem;"><input type="checkbox" class="user-perm-chk" value="portfolio" checked /> 📁 Portfolio</label>
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.9rem;"><input type="checkbox" class="user-perm-chk" value="clients" checked /> 🏢 Client Logos</label>
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.9rem;"><input type="checkbox" class="user-perm-chk" value="team" checked /> 👥 Team Members</label>
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.9rem;"><input type="checkbox" class="user-perm-chk" value="testimonials" checked /> ⭐ Testimonials</label>
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.9rem;"><input type="checkbox" class="user-perm-chk" value="media" checked /> 🖼️ Media Library</label>
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.9rem;"><input type="checkbox" class="user-perm-chk" value="inquiries" checked /> 📥 Contact Leads</label>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-admin-secondary" id="cancelUserForm2">Cancel</button>
+            <button type="submit" class="btn-admin-primary" id="saveUserBtn">Save Account</button>
+          </div>
+        </form>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<!-- FLOATING UPLOAD PROGRESS MODAL -->
+<div id="uploadProgressOverlay" class="upload-modal-overlay" style="display:none;">
+  <div class="upload-modal-card">
+    <div class="upload-modal-header">
+      <div class="upload-modal-title">
+        <span>⚡</span>
+        <span id="uploadModalMainTitle">Uploading Files...</span>
+      </div>
+      <span id="uploadFileCounter" style="font-size:0.88rem; font-weight:700; color:#FFB800;">1 / 1</span>
+    </div>
+    <div class="upload-current-file" id="uploadCurrentFileName">Preparing upload...</div>
+    <div class="upload-bar-track">
+      <div class="upload-bar-fill" id="uploadBarFill"></div>
+    </div>
+    <div class="upload-status-sub">
+      <span id="uploadBytesStatus">0 MB / 0 MB</span>
+      <span id="uploadPercentStatus" style="font-weight:700; color:#FFB800;">0%</span>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div id="toast" class="admin-toast" hidden></div>
+
+<!-- ═══════════ MOBILE BOTTOM TAB BAR ═══════════ -->
+<nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Mobile Navigation">
+  <button class="mob-tab-btn active" data-tab="dashboard">
+    <span class="mob-tab-icon">📊</span>
+    <span class="mob-tab-label">Overview</span>
+  </button>
+  <button class="mob-tab-btn" data-tab="all-leads">
+    <span class="mob-tab-icon">🗂️</span>
+    <span class="mob-tab-label">Leads</span>
+    <span class="mob-badge" id="mobInqBadge" style="display:none;">0</span>
+  </button>
+  <button class="mob-tab-btn" data-tab="whatsapp-leads">
+    <span class="mob-tab-icon">💬</span>
+    <span class="mob-tab-label">WhatsApp</span>
+    <span class="mob-badge" id="mobWaBadge" style="display:none;">0</span>
+  </button>
+  <button class="mob-tab-btn" data-tab="portfolio">
+    <span class="mob-tab-icon">🎨</span>
+    <span class="mob-tab-label">Projects</span>
+  </button>
+  <button class="mob-tab-btn" id="mobMoreBtn">
+    <span class="mob-tab-icon">☰</span>
+    <span class="mob-tab-label">Menu</span>
+  </button>
+</nav>
+
+<script src="dashboard.js?v=20260906-v201"></script>
+</body>
+</html>

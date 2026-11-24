@@ -1,0 +1,54 @@
+{
+  "name": "Egypt Creative Control",
+  "short_name": "EC Admin",
+  "description": "Egypt Creative Agency — Mobile Management, Leads CRM & Analytics",
+  "start_url": "dashboard.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07090E",
+  "theme_color": "#FFB800",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Leads & Inquiries",
+      "short_name": "Leads",
+      "description": "View new customer inquiries and leads",
+      "url": "dashboard.html?tab=inquiries",
+      "icons": [{ "src": "favicon-32x32.png", "sizes": "32x32" }]
+    },
+    {
+      "name": "WhatsApp Interactions",
+      "short_name": "WhatsApp",
+      "description": "View WhatsApp lead clicks",
+      "url": "dashboard.html?tab=whatsapp-leads",
+      "icons": [{ "src": "favicon-32x32.png", "sizes": "32x32" }]
+    },
+    {
+      "name": "Live Analytics",
+      "short_name": "Analytics",
+      "description": "View live traffic and visitor stats",
+      "url": "dashboard.html?tab=analytics",
+      "icons": [{ "src": "favicon-32x32.png", "sizes": "32x32" }]
+    }
+  ]
+}

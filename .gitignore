@@ -1,0 +1,41 @@
+# WordPress Staging & Backups
+staging-site/
+original_hostinger_backup/
+backups/
+backups_and_reports/
+
+# Scratch, testing scripts & secret tools
+scratch/
+unzip_tool.php
+unzip_sync.php
+test.php
+*.py
+
+# Heavy media assets (Gigabytes of videos)
+assets/portfolio_web/
+assets/portfolio_web_optimized/
+assets/uploads/
+assets/videos/
+*.mp4
+*.webm
+*.mov
+*.zip
+*.tar.gz
+*.bak
+*.rar
+*.db
+*.sqlite
+*.sql
+
+# Dependencies, Environment & Server Configs
+node_modules/
+vendor/
+.env
+.env.local
+.user.ini
+*.log
+
+# OS generated
+Thumbs.db
+Desktop.ini
+.DS_Store

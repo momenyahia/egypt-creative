@@ -1,0 +1,56 @@
+{
+  "sultan-almandy": [
+    {
+      "url": "assets/videos/sultan_reel_1.mp4",
+      "title_ar": "عريكة فخار ملكي",
+      "title_en": "Royal Clay-Pot Areeka"
+    },
+    {
+      "url": "assets/videos/sultan_reel_2.mp4",
+      "title_ar": "بشاور ولا مندي؟",
+      "title_en": "Peshawari vs Mandi"
+    },
+    {
+      "url": "assets/videos/sultan_reel_3.mp4",
+      "title_ar": "5.. 4.. 3.. والمندي عند بابك",
+      "title_en": "Fast Doorstep Delivery"
+    },
+    {
+      "url": "assets/videos/sultan_reel_4.mp4",
+      "title_ar": "الطلب عبر تطبيق ذا شيفز",
+      "title_en": "Instant The Chefz Order"
+    },
+    {
+      "url": "assets/videos/sultan_reel_5.mp4",
+      "title_ar": "سفرة الجمعة مع سلطان المندي",
+      "title_en": "Friday Feast Gathering"
+    }
+  ],
+  "fish-day": [
+    {
+      "url": "assets/videos/fishday_reel_1.mp4",
+      "title_ar": "تشكيلة مأكولات بحرية فاخرة",
+      "title_en": "Artisan Seafood Platter"
+    },
+    {
+      "url": "assets/videos/fishday_reel_2.mp4",
+      "title_ar": "قرمشة تسمعها بالعين",
+      "title_en": "Golden Crispy Catch"
+    },
+    {
+      "url": "assets/videos/fishday_reel_3.mp4",
+      "title_ar": "دنيس السوبريم الطازج",
+      "title_en": "Fresh Supreme Sea Bream"
+    },
+    {
+      "url": "assets/videos/fishday_reel_4.mp4",
+      "title_ar": "الطزاجة تبان من عينه",
+      "title_en": "Peak Ocean Freshness"
+    },
+    {
+      "url": "assets/videos/fishday_reel_5.mp4",
+      "title_ar": "الهامور.. ملك السفرة!",
+      "title_en": "King Grouper Signature Dish"
+    }
+  ]
+}

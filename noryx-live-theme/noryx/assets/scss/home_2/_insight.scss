@@ -1,0 +1,154 @@
+.nx-insight-content {
+	gap: 30px;
+	@media #{$md,$sm,$xs,$xxs} {
+		flex-wrap: wrap;
+		justify-content: center !important;
+	}
+}
+
+.nx-insight-top {
+	.nx-sec-title1 {
+		max-width: 685px;
+	}
+	.top-desc {
+		max-width: 440px;
+		p {
+			padding-bottom: 28px;
+		}
+		.nx-btn1 {
+			a {
+				padding: 4px 16px 4px 4px;
+				i {
+					width: 44px;
+					height: 44px;
+				}
+			}
+		}
+	}
+}
+
+.nx-insight-text {
+	max-width: 454px;
+	padding-top: 155px;
+	margin-bottom: 48px;
+	.item_tag {
+		line-height: 1;
+		font-weight: 500;
+		padding-bottom: 10px;
+		color: var(--nx-prime-c);
+	}
+	.ins_title {
+		color: #fff;
+		font-size: 32px;
+		font-weight: 700;
+		padding-bottom: 16px;
+	}
+	p {
+		opacity: .8;
+		color: #E4E4E4;
+		line-height: 1.5;
+		padding-bottom: 30px;
+	}
+	.nx-btn1 {
+		a {
+			border: 1px solid #2A2A2A;
+			padding: 4px 16px 4px 4px;
+			background-color: transparent;
+			i {
+				width: 36px;
+				height: 36px;
+			}
+			span {
+				color: #fff;
+			}
+			&:hover {
+				background-color: var(--nx-prime-c);
+				i {
+					background-color: #fff;
+					svg {
+						path {
+							fill: var(--nx-prime-c);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.nx-insight-section {
+	position: relative;
+}
+.nx-insight-img {
+	overflow: hidden;
+	max-width: 846px;
+	margin-bottom: 48px;
+	border-radius: 32px;
+	will-change: transform;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+	.item-icon {
+		left: 0;
+		top: 40%;
+		right: 0;
+		width: 72px;
+		opacity: 0;
+		height: 72px;
+		margin: 0 auto;
+		position: absolute;
+		visibility: hidden;
+		transform: translateY(-50%);
+		transition: all 500ms ease-in-out;
+		a {
+			color: #fff;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			border-radius: 100%;
+			align-items: center;
+			justify-content: center;
+			background-color: var(--nx-prime-c);
+			i {
+				font-size: 28px;
+				-webkit-animation: EYE 1.5s infinite;
+				animation: EYE 1.5s infinite;
+				-webkit-transform-origin: 50% 50%;
+				transform-origin: 50% 50%;
+			}
+		}
+	}
+	&:hover {
+		.item-icon {
+			top: 50%;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+.nx-insight-right {
+	position: relative;
+}
+
+.nx-insight-img-wrap {
+	position: sticky;
+	top: 30px; 
+	margin-bottom: 30px;
+	border-radius: 20px;
+	overflow: hidden;
+	transition: all 0.3s ease;
+	transform-style: preserve-3d;
+}
+
+.nx-insight-img {
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.nx-insight-img img {
+	width: 100%;
+	height: auto;
+	display: block;
+	pointer-events: none;
+}

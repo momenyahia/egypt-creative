@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study — Egypt Creative Marketing Agency</title>
+  <meta name="description" content="Detailed case study and marketing portfolio overview — Egypt Creative Marketing Agency." />
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&family=Alexandria:wght@400;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="app.css?v=20260904-v10000006" />
+
+  <style>
+    body {
+      background: #07090E;
+      color: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', var(--font-ar), sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .cs-page-hero {
+      position: relative;
+      width: 100%;
+      min-height: 440px;
+      display: flex;
+      align-items: flex-end;
+      padding: 110px 0 40px;
+      background: #07090E;
+      overflow: hidden;
+    }
+    .cs-page-hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+      filter: blur(4px) brightness(0.6);
+    }
+    .cs-page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(7,9,14,0.4) 0%, rgba(7,9,14,0.96) 100%);
+    }
+    .cs-page-hero-container {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .cs-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #FFB800;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      margin-bottom: 20px;
+      padding: 6px 16px;
+      background: rgba(255, 184, 0, 0.1);
+      border: 1px solid rgba(255, 184, 0, 0.25);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .cs-back-link:hover {
+      background: #FFB800;
+      color: #07090E;
+      transform: translateX(-4px);
+    }
+    body.rtl .cs-back-link:hover {
+      transform: translateX(4px);
+    }
+    .cs-hero-main-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .cs-hero-title-col {
+      flex: 1 1 500px;
+    }
+    .cs-hero-header-flex {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 12px;
+    }
+    .cs-brand-logo-img {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #FFB800;
+      box-shadow: 0 0 22px rgba(255,184,0,0.35);
+      flex-shrink: 0;
+      background: #000;
+    }
+    .cs-page-title {
+      font-family: 'Outfit', var(--font-ar), sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin: 0 0 6px 0;
+      line-height: 1.2;
+    }
+    .cs-page-subtitle {
+      font-size: 1.05rem;
+      color: #CBD5E1;
+      max-width: 850px;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* HIGH IMPACT KEY METRICS (IN HERO) */
+    .cs-hero-meta-col {
+      flex: 0 0 auto;
+    }
+    .cs-hero-metrics-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .cs-metric-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 14px 22px;
+      background: rgba(13, 18, 31, 0.85);
+      border: 1px solid rgba(255, 184, 0, 0.35);
+      border-radius: 16px;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(12px);
+      min-width: 140px;
+      transition: all 0.25s ease;
+    }
+    .cs-metric-card:hover {
+      border-color: #FFB800;
+      background: rgba(255, 184, 0, 0.12);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(255, 184, 0, 0.25);
+    }
+    .cs-metric-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #FFB800;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .cs-metric-lbl {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #CBD5E1;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* DETAILS CONTENT */
+    .cs-details-section {
+      padding: 40px 0 90px;
+      background: #07090E;
+    }
+    .cs-content-box {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* COMPACT 3-COLUMN SECONDARY TEXT BLOCKS */
+    .cs-compact-blocks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 45px;
+    }
+    .cs-small-block {
+      background: rgba(23, 19, 16, 0.85);
+      border: 1px solid rgba(255, 184, 0, 0.2);
+      border-radius: 16px;
+      padding: 24px 26px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    .cs-small-block:hover {
+      border-color: rgba(255, 184, 0, 0.45);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+    }
+    .cs-small-block-title {
+      font-family: 'Outfit', var(--font-ar), sans-serif;
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #FFB800;
+      margin: 0 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cs-small-block-p {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: #CBD5E1;
+      margin: 0;
+    }
+
+    /* SECTION WRAPPERS */
+    .cs-section-wrapper {
+      margin-bottom: 50px;
+    }
+    .cs-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,184,0,0.2);
+    }
+    .cs-section-h2 {
+      font-family: 'Outfit', var(--font-ar), sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #FFB800;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cs-section-hint {
+      font-size: 0.82rem;
+      color: #94A3B8;
+      font-weight: 600;
+    }
+
+    /* AUTO-SCROLLING PHOTO MARQUEE */
+    .cs-photo-marquee-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 16px 0;
+      border-radius: 16px;
+      background: rgba(15, 12, 9, 0.6);
+      border: 1px solid rgba(255, 184, 0, 0.15);
+      mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+      direction: ltr !important;
+    }
+
+    .cs-photo-marquee-track {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 18px !important;
+      white-space: nowrap !important;
+      width: max-content;
+      animation: csPhotoMarqueeScroll 35s linear infinite;
+      will-change: transform;
+    }
+
+    .cs-photo-marquee-container:hover .cs-photo-marquee-track {
+      animation-play-state: paused !important;
+    }
+
+    @keyframes csPhotoMarqueeScroll {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    .cs-gallery-card {
+      flex: 0 0 auto;
+      width: auto;
+      height: 350px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: none !important;
+      position: relative;
+      cursor: pointer;
+      background: transparent !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .cs-gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    .cs-gallery-img {
+      max-height: 100%;
+      width: auto;
+      height: 100%;
+      object-fit: contain !important;
+      border: none !important;
+      border-radius: 10px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .cs-gallery-card:hover .cs-gallery-img {
+      transform: scale(1.02);
+    }
+
+    .cs-gallery-card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transition: opacity 0.3s ease;
+    }
+
+    .cs-gallery-card:hover .cs-gallery-card-overlay {
+      opacity: 1;
+    }
+
+    .cs-gallery-zoom-badge {
+      background: rgba(255, 184, 0, 0.9);
+      color: #07090E;
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* VIDEO PROJECTS SHOWCASE */
+    .cs-video-static-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 18px;
+    }
+    .cs-video-card {
+      background: rgba(23, 19, 16, 0.95);
+      border: 1px solid rgba(255, 184, 0, 0.25);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: all 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .cs-video-card:hover {
+      border-color: #FFB800;
+      transform: translateY(-4px);
+      box-shadow: 0 14px 35px rgba(255, 184, 0, 0.25);
+    }
+    .cs-video-thumb-wrap {
+      position: relative;
+      width: 100%;
+      min-height: 240px;
+      max-height: 520px;
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cs-video-thumb-wrap video {
+      width: 100%;
+      height: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      display: block;
+      background: #000;
+      border-radius: 12px 12px 0 0;
+    }
+    .cs-video-card-body {
+      padding: 16px 18px;
+      background: rgba(15, 12, 9, 0.95);
+      border-top: 1px solid rgba(255, 184, 0, 0.15);
+    }
+    .cs-video-card-title {
+      font-family: 'Outfit', var(--font-ar), sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin: 0 0 4px 0;
+    }
+    .cs-video-card-desc {
+      font-size: 0.85rem;
+      color: #94A3B8;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .cs-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 184, 0, 0.2);
+    }
+    .cs-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      border-radius: 50px;
+      background: rgba(255, 184, 0, 0.12);
+      color: #FFB800;
+      border: 1px solid rgba(255, 184, 0, 0.35);
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .cs-nav-btn:hover {
+      background: #FFB800;
+      color: #07090E;
+      transform: translateY(-2px);
+    }
+
+    /* COMPLETE LIGHT THEME SYSTEM */
+    body.light-theme {
+      background: #F8F9FA !important;
+      color: #1E293B !important;
+    }
+    body.light-theme #site-header {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-bottom: 1px solid rgba(212, 155, 0, 0.25) !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04) !important;
+    }
+    body.light-theme .logo-img-white { display: none !important; }
+    body.light-theme .logo-img-black { display: block !important; }
+    body.light-theme .cs-page-hero {
+      background: #F1F5F9 !important;
+    }
+    body.light-theme .cs-page-hero-overlay {
+      background: linear-gradient(180deg, rgba(248,249,250,0.85) 0%, rgba(248,249,250,0.96) 100%) !important;
+    }
+    body.light-theme .cs-back-link {
+      background: rgba(212, 155, 0, 0.1) !important;
+      border-color: rgba(212, 155, 0, 0.3) !important;
+      color: #D49B00 !important;
+    }
+    body.light-theme .cs-page-title {
+      color: #0F172A !important;
+    }
+    body.light-theme .cs-page-subtitle {
+      color: #475569 !important;
+    }
+    body.light-theme .cs-metric-card {
+      background: #FFFFFF !important;
+      border: 1px solid rgba(212, 155, 0, 0.35) !important;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06) !important;
+    }
+    body.light-theme .cs-metric-val {
+      color: #D49B00 !important;
+    }
+    body.light-theme .cs-metric-lbl {
+      color: #475569 !important;
+    }
+    body.light-theme .cs-details-section {
+      background: #F8F9FA !important;
+    }
+    body.light-theme .cs-small-block {
+      background: #FFFFFF !important;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04) !important;
+    }
+    body.light-theme .cs-small-block-title {
+      color: #D49B00 !important;
+    }
+    body.light-theme .cs-small-block-p {
+      color: #334155 !important;
+    }
+    body.light-theme .cs-video-card {
+      background: #FFFFFF !important;
+      border: 1px solid rgba(212, 155, 0, 0.3) !important;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06) !important;
+    }
+    body.light-theme .cs-video-card-title {
+      color: #0F172A !important;
+    }
+    body.light-theme .cs-video-card-desc {
+      color: #64748B !important;
+    }
+    body.light-theme .cs-photo-marquee-container {
+      background: rgba(241, 245, 249, 0.8) !important;
+      border-color: rgba(212, 155, 0, 0.25) !important;
+    }
+
+    /* MOBILE RESPONSIVENESS FOR METRICS & HERO */
+    @media (max-width: 768px) {
+      .cs-page-hero {
+        padding: 95px 0 25px;
+        min-height: auto;
+      }
+      .cs-hero-main-row {
+        gap: 16px;
+        margin-top: 8px;
+      }
+      .cs-hero-title-col {
+        flex: 1 1 100%;
+      }
+      .cs-hero-header-flex {
+        gap: 14px;
+        margin-bottom: 8px;
+      }
+      .cs-brand-logo-img {
+        width: 58px;
+        height: 58px;
+      }
+      .cs-page-title {
+        font-size: 1.6rem;
+        margin-bottom: 4px;
+      }
+      .cs-page-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      .cs-hero-meta-col {
+        width: 100%;
+        margin-top: 4px;
+      }
+      .cs-hero-metrics-bar {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        width: 100%;
+      }
+      .cs-metric-card {
+        padding: 8px 6px;
+        min-width: unset;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 12px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      }
+      .cs-metric-val {
+        font-size: 1.12rem;
+        margin-bottom: 2px;
+        line-height: 1.1;
+        text-align: center;
+      }
+      .cs-metric-lbl {
+        font-size: 0.62rem;
+        letter-spacing: 0;
+        line-height: 1.2;
+        text-align: center;
+        word-break: break-word;
+      }
+      .cs-details-section {
+        padding: 24px 0 60px;
+      }
+      .cs-compact-blocks-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 30px;
+      }
+      .cs-small-block {
+        padding: 16px 18px;
+      }
+      .cs-gallery-card {
+        height: 260px;
+      }
+      .cs-video-static-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .cs-hero-metrics-bar {
+        gap: 6px;
+      }
+      .cs-metric-card {
+        padding: 6px 4px;
+        border-radius: 10px;
+      }
+      .cs-metric-val {
+        font-size: 1.02rem;
+      }
+      .cs-metric-lbl {
+        font-size: 0.58rem;
+      }
+      .cs-page-title {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="site-header" style="position:fixed; top:0; left:0; width:100%; z-index:1000; background:rgba(7,9,14,0.92); backdrop-filter:blur(10px); border-bottom:1px solid rgba(255,184,0,0.15);">
+    <nav class="nav-wrap" style="max-width:1200px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html#work" class="nav-logo">
+        <img src="assets/logo-white.png" alt="Egypt Creative" class="logo-img logo-img-white" style="height:40px;" />
+        <img src="assets/logo-black.png" alt="Egypt Creative" class="logo-img logo-img-black" style="height:40px; display:none;" />
+      </a>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="theme-toggle-btn" id="csThemeToggle" aria-label="Toggle theme" style="padding:6px 12px; border-radius:50px; background:rgba(255,184,0,0.12); border:1px solid rgba(255,184,0,0.3); color:#FFB800; font-weight:700; cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center;">
+          <span id="csThemeIcon">☀️</span>
+        </button>
+        <button class="lang-toggle-btn" id="csLangToggle" style="padding:6px 16px; border-radius:50px; background:rgba(255,184,0,0.12); border:1px solid rgba(255,184,0,0.3); color:#FFB800; font-weight:700; cursor:pointer;">
+          <span id="csLangText">عربي</span>
+        </button>
+        <a href="index.html#contact" class="btn-cta" style="padding:8px 20px; border-radius:50px; background:#FFB800; color:#07090E; font-weight:700; text-decoration:none;">Get a Quote</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="cs-page-hero">
+    <img id="csHeroBg" src="" alt="Project Background" class="cs-page-hero-bg" onerror="this.style.display='none';" />
+    <div class="cs-page-hero-overlay"></div>
+    <div class="cs-page-hero-container">
+      <a href="index.html#work" class="cs-back-link" id="csBackBtn">← Back to Selected Work</a>
+      
+      <div class="cs-hero-main-row">
+        <!-- Title & Brand -->
+        <div class="cs-hero-title-col">
+          <div class="cs-hero-header-flex">
+            <img id="csLogoImg" src="" alt="Brand Logo" class="cs-brand-logo-img" onerror="this.style.display='none';" />
+            <div>
+              <h1 class="cs-page-title" id="csTitle">Loading Project...</h1>
+              <p class="cs-page-subtitle" id="csSubtitle"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- HIGH-IMPACT KEY METRICS BAR (Directly inside Hero replacing Category & Year) -->
+        <div class="cs-hero-meta-col">
+          <div class="cs-hero-metrics-bar" id="csHeroMetricsBar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAILS CONTENT -->
+  <main class="cs-details-section">
+    <div class="cs-content-box">
+      
+      <!-- COMPACT 3-COLUMN SECONDARY TEXT BLOCKS (CHALLENGE, STRATEGY, IMPACT) -->
+      <div class="cs-compact-blocks-grid">
+        <!-- Challenge -->
+        <div class="cs-small-block" id="csChallengeBlock">
+          <h3 class="cs-small-block-title">🎯 <span id="csChallengeTitle">The Challenge</span></h3>
+          <p class="cs-small-block-p" id="csChallengeText"></p>
+        </div>
+
+        <!-- Strategy -->
+        <div class="cs-small-block" id="csStrategyBlock">
+          <h3 class="cs-small-block-title">💡 <span id="csStrategyTitle">Strategy & Creative</span></h3>
+          <p class="cs-small-block-p" id="csStrategyText"></p>
+        </div>
+
+        <!-- Solution & Execution -->
+        <div class="cs-small-block" id="csSolutionBlock">
+          <h3 class="cs-small-block-title">🚀 <span id="csSolutionTitle">Execution & Impact</span></h3>
+          <p class="cs-small-block-p" id="csSolutionText"></p>
+        </div>
+      </div>
+
+      <!-- PHOTO PROJECTS SHOWCASE (AUTO-SCROLLING MARQUEE TO THE LEFT) -->
+      <div class="cs-section-wrapper" id="csPhotoSection">
+        <div class="cs-section-header">
+          <h2 class="cs-section-h2">📷 <span id="csPhotoTitle">Photo Projects Showcase</span></h2>
+          <span class="cs-section-hint" id="csPhotoHint">Auto-scrolling showcase • Hover to pause • Click to enlarge</span>
+        </div>
+        
+        <div class="cs-photo-marquee-container">
+          <div class="cs-photo-marquee-track" id="csGalleryTrack"></div>
+        </div>
+      </div>
+
+      <!-- VIDEO REELS & SHOWCASE -->
+      <div class="cs-section-wrapper" id="csVideoSection" style="margin-top: 35px; display: none;">
+        <div class="cs-section-header">
+          <h2 class="cs-section-h2">🎬 <span id="csVideoTitle">Video Projects Showcase</span></h2>
+          <span class="cs-section-hint" id="csVideoHint">Official Project Video Reels & Commercial Highlights</span>
+        </div>
+        
+        <div class="cs-video-static-grid" id="csVideoGrid"></div>
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="cs-nav-row" style="justify-content: center;">
+        <a href="index.html#work" class="cs-nav-btn" id="csNavAll">← Explore All Projects</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div id="imageLightbox" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.95); backdrop-filter:blur(12px); align-items:center; justify-content:center; padding:20px;">
+    <button id="lightboxClose" style="position:absolute; top:24px; right:28px; background:rgba(255,184,0,0.2); border:1px solid #FFB800; color:#FFB800; border-radius:50%; width:44px; height:44px; font-size:1.4rem; cursor:pointer; z-index:100000;">✕</button>
+    <button id="lightboxPrev" style="position:absolute; left:20px; top:50%; transform:translateY(-50%); background:rgba(23,19,16,0.9); border:1px solid #FFB800; color:#FFB800; border-radius:50%; width:48px; height:48px; font-size:1.8rem; cursor:pointer; z-index:100000;">‹</button>
+    <img id="lightboxImg" src="" alt="Full View" style="max-width:95vw; max-height:92vh; object-fit:contain; border:none !important; border-radius:4px; box-shadow:0 25px 60px rgba(0,0,0,0.85);" />
+    <button id="lightboxNext" style="position:absolute; right:20px; top:50%; transform:translateY(-50%); background:rgba(23,19,16,0.9); border:1px solid #FFB800; color:#FFB800; border-radius:50%; width:48px; height:48px; font-size:1.8rem; cursor:pointer; z-index:100000;">›</button>
+  </div>
+
+  <script>
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    (async function initCaseStudyPage() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get('slug') || urlParams.get('id') || urlParams.get('project');
+
+      // Theme Management (Sync with main website)
+      const themeToggleBtn = document.getElementById('csThemeToggle');
+      const themeIcon = document.getElementById('csThemeIcon');
+
+      function applyTheme(theme) {
+        if (theme === 'light') {
+          document.body.classList.add('light-theme');
+          if (themeIcon) themeIcon.textContent = '🌙';
+        } else {
+          document.body.classList.remove('light-theme');
+          if (themeIcon) themeIcon.textContent = '☀️';
+        }
+        localStorage.setItem('agency_theme', theme);
+      }
+
+      const initialTheme = localStorage.getItem('agency_theme') || 'dark';
+      applyTheme(initialTheme);
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+          const isLight = document.body.classList.contains('light-theme');
+          applyTheme(isLight ? 'dark' : 'light');
+        });
+      }
+
+      let currentLang = localStorage.getItem('agency_lang') || 'ar';
+      
+      function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('agency_lang', lang);
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        if (lang === 'ar') document.body.classList.add('rtl');
+        else document.body.classList.remove('rtl');
+        document.getElementById('csLangText').textContent = lang === 'ar' ? 'English' : 'عربي';
+        renderProjectData();
+      }
+
+      document.getElementById('csLangToggle').addEventListener('click', () => {
+        setLang(currentLang === 'en' ? 'ar' : 'en');
+      });
+
+      let projectData = null;
+      let allProjects = [];
+
+      try {
+        const res = await fetch(`api.php?action=get_data&_t=${Date.now()}`).then(r => r.json());
+        if (res && res.portfolio) {
+          allProjects = res.portfolio;
+        }
+      } catch (e) {
+        console.warn('API error:', e);
+      }
+
+      if (slug && allProjects.length) {
+        projectData = allProjects.find(p => String(p.slug) === String(slug) || String(p.id) === String(slug) || (p.company_name_en && p.company_name_en.toLowerCase().replace(/[^a-z0-9]+/g, '-') === slug));
+      }
+
+      if (!projectData && allProjects.length) {
+        projectData = allProjects[0];
+      }
+
+      let activeGallery = [];
+      let activeLightboxIdx = 0;
+
+      const lightbox = document.getElementById('imageLightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxClose = document.getElementById('lightboxClose');
+      const lightboxPrev = document.getElementById('lightboxPrev');
+      const lightboxNext = document.getElementById('lightboxNext');
+
+      function openLightbox(idx) {
+        if (!activeGallery.length) return;
+        activeLightboxIdx = (idx + activeGallery.length) % activeGallery.length;
+        lightboxImg.src = activeGallery[activeLightboxIdx];
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      lightboxClose.onclick = closeLightbox;
+      lightbox.onclick = (e) => { if (e.target === lightbox) closeLightbox(); };
+      lightboxPrev.onclick = () => openLightbox(activeLightboxIdx - 1);
+      lightboxNext.onclick = () => openLightbox(activeLightboxIdx + 1);
+
+      document.addEventListener('keydown', (e) => {
+        if (lightbox.style.display === 'flex') {
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowLeft') openLightbox(activeLightboxIdx - 1);
+          if (e.key === 'ArrowRight') openLightbox(activeLightboxIdx + 1);
+        }
+      });
+
+      function renderProjectData() {
+        if (!projectData) return;
+
+        const isAr = currentLang === 'ar';
+        const titleStr = isAr ? (projectData.title_ar || projectData.titleAr || projectData.company_name_ar || projectData.company_name_en) : (projectData.title_en || projectData.titleEn || projectData.company_name_en || projectData.company_name_ar);
+        const descStr = isAr ? (projectData.desc_ar || projectData.description_ar || projectData.desc_en || 'دراسة حالة مخصصة لهذا المشروع وتطوير استراتيجية النمو والتوسع.') : (projectData.desc_en || projectData.description_en || projectData.desc_ar || 'Comprehensive case study detailing strategy, execution, and growth impact.');
+        
+        document.title = `${titleStr} — Egypt Creative`;
+
+        document.getElementById('csBackBtn').textContent = isAr ? '← العودة للمشاريع المختارة' : '← Back to Selected Work';
+        document.getElementById('csTitle').textContent = titleStr;
+        document.getElementById('csSubtitle').textContent = descStr;
+
+        const logoUrl = projectData.company_logo || projectData.logo || projectData.logo_url || 'assets/uploads/bebek-logo.png';
+        const coverUrl = projectData.img || projectData.image || projectData.cover || 'assets/uploads/cover_azzam-real-estate.png';
+
+        document.getElementById('csLogoImg').src = logoUrl;
+        document.getElementById('csHeroBg').src = coverUrl;
+
+        // HIGH IMPACT KEY METRICS (IN HERO)
+        const m1Val = projectData.metric_val1 || '+340%';
+        const m1Lbl = isAr ? (projectData.metric_lbl1_ar || 'نمو الوصول الطبيعي') : (projectData.metric_lbl1_en || 'Organic Growth');
+        const m2Val = projectData.metric_val2 || '2.8M+';
+        const m2Lbl = isAr ? (projectData.metric_lbl2_ar || 'إجمالي المشاهدات والوصول') : (projectData.metric_lbl2_en || 'Total Reach & Views');
+        const m3Val = projectData.metric_val3 || '98%';
+        const m3Lbl = isAr ? (projectData.metric_lbl3_ar || 'نسبة رضا العملاء والأداء') : (projectData.metric_lbl3_en || 'Client Satisfaction');
+
+        document.getElementById('csHeroMetricsBar').innerHTML = `
+          <div class="cs-metric-card">
+            <span class="cs-metric-val">${escapeHtml(m1Val)}</span>
+            <span class="cs-metric-lbl">${escapeHtml(m1Lbl)}</span>
+          </div>
+          <div class="cs-metric-card">
+            <span class="cs-metric-val">${escapeHtml(m2Val)}</span>
+            <span class="cs-metric-lbl">${escapeHtml(m2Lbl)}</span>
+          </div>
+          <div class="cs-metric-card">
+            <span class="cs-metric-val">${escapeHtml(m3Val)}</span>
+            <span class="cs-metric-lbl">${escapeHtml(m3Lbl)}</span>
+          </div>
+        `;
+
+        // COMPACT SECONDARY TEXT BLOCKS (CHALLENGE, STRATEGY, IMPACT)
+        document.getElementById('csChallengeTitle').textContent = isAr ? 'التحدي والسياق' : 'The Challenge';
+        document.getElementById('csChallengeText').textContent = isAr 
+          ? (projectData.challenge_ar || projectData.desc_ar || 'تم وضع الخطة بناء على دراسة هادفة للسوق المصرى والإقليمى لزيادة الانتشار وحصة السوق.') 
+          : (projectData.challenge_en || projectData.desc_en || 'Strategically tailored campaign to scale reach and brand awareness.');
+
+        document.getElementById('csStrategyTitle').textContent = isAr ? 'الرؤية والتوجه الإبداعي' : 'Strategy & Creative Direction';
+        document.getElementById('csStrategyText').textContent = isAr 
+          ? (projectData.strategy_ar || 'ابتكار هوية بصرية متميزة ومحتوى رقمي عالي الجودة للوصول الفعال للجمهور المستهدف.') 
+          : (projectData.strategy_en || 'High-impact creative direction, visual branding, and multi-channel performance media.');
+
+        document.getElementById('csSolutionTitle').textContent = isAr ? 'التنفيذ والنتائج' : 'Execution & Impact';
+        document.getElementById('csSolutionText').textContent = isAr 
+          ? (projectData.solution_ar || projectData.execution_ar || 'إطلاق الحملة الترويجية وتتبع مؤشرات الأداء لضمان تحقيق أعلى عائد استثماري.') 
+          : (projectData.solution_en || projectData.execution_en || 'Full deployment, multi-platform media buying, and measurable performance growth.');
+
+        // PHOTO GALLERY (REAL PHOTOS ONLY — DO NOT SHOW FOR VIDEO-ONLY PROJECTS)
+        let rawGallery = projectData.gallery;
+        let galleryList = [];
+
+        if (typeof rawGallery === 'string' && rawGallery.trim().startsWith('[')) {
+          try {
+            galleryList = JSON.parse(rawGallery);
+          } catch (e) {}
+        } else if (Array.isArray(rawGallery)) {
+          galleryList = rawGallery;
+        }
+
+        galleryList = Array.from(new Set(galleryList.filter(Boolean)));
+        // Filter out any cover images if only 1 image exists
+        galleryList = galleryList.filter(img => !img.includes('cover_') || galleryList.length > 2);
+
+        const photoSection = document.getElementById('csPhotoSection');
+
+        if (galleryList && galleryList.length >= 2) {
+          photoSection.style.display = 'block';
+          activeGallery = galleryList;
+
+          document.getElementById('csPhotoTitle').textContent = isAr ? 'معرض صور المشاريع' : 'Photo Projects Showcase';
+          document.getElementById('csPhotoHint').textContent = isAr ? 'معرض متحرك بتدفق موحّد وسلس • توقّف عند التحويم • اضغط للتكبير' : 'Auto-scrolling showcase • Hover to pause • Click to enlarge';
+
+          const trackEl = document.getElementById('csGalleryTrack');
+          
+          let loopItems = [...galleryList];
+          while (loopItems.length < 12) {
+            loopItems = [...loopItems, ...galleryList];
+          }
+          loopItems = [...loopItems, ...loopItems];
+
+          trackEl.innerHTML = loopItems.map((imgUrl, i) => {
+            const originalIdx = i % galleryList.length;
+            return `
+              <div class="cs-gallery-card" onclick="window._openGalleryImg(${originalIdx})">
+                <img src="${escapeHtml(imgUrl)}" alt="Gallery Image ${originalIdx+1}" class="cs-gallery-img" onerror="this.src='${coverUrl}';" />
+                <div class="cs-gallery-card-overlay">
+                  <span class="cs-gallery-zoom-badge">🔍 ${isAr ? 'عرض المكبر' : 'Enlarge Image'}</span>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          const estimatedTrackWidth = loopItems.length * 280;
+          const halfTrackWidth = estimatedTrackWidth / 2;
+          const targetSpeedPixelsPerSec = 50;
+          const calculatedDuration = Math.max(16, Math.round(halfTrackWidth / targetSpeedPixelsPerSec));
+          trackEl.style.animationDuration = `${calculatedDuration}s`;
+
+          window._openGalleryImg = openLightbox;
+        } else {
+          photoSection.style.display = 'none';
+        }
+
+        // VIDEO PROJECTS SECTION
+        const videoSection = document.getElementById('csVideoSection');
+        const videoGrid = document.getElementById('csVideoGrid');
+        
+        let videoList = [];
+        let rawVids = projectData.video_url || projectData.videoUrl || '';
+        
+        if (typeof rawVids === 'string' && rawVids.trim().startsWith('[')) {
+          try {
+            videoList = JSON.parse(rawVids);
+          } catch(e) {}
+        } else if (Array.isArray(rawVids)) {
+          videoList = rawVids;
+        } else if (typeof rawVids === 'string' && rawVids.trim()) {
+          videoList = [{ url: rawVids.trim(), title_ar: titleStr, title_en: titleStr }];
+        }
+
+        if (videoList && videoList.length) {
+          videoSection.style.display = 'block';
+          document.getElementById('csVideoTitle').textContent = isAr ? 'المشاريع والمقاطع المرئية' : 'Video Projects Showcase';
+          document.getElementById('csVideoHint').textContent = isAr ? 'معرض فيديو وريلز رسمي للمشروع' : 'Official Project Video Reels';
+          
+          videoGrid.innerHTML = videoList.map((vItem, vIdx) => {
+            let vUrl = typeof vItem === 'string' ? vItem.trim() : (vItem.url || '').trim();
+            let vTitle = typeof vItem === 'object' ? (isAr ? (vItem.title_ar || vItem.title_en || `${titleStr} — مقطع ${vIdx+1}`) : (vItem.title_en || vItem.title_ar || `${titleStr} — Reel ${vIdx+1}`)) : `${titleStr} — مقطع ${vIdx+1}`;
+            if (!vUrl) return '';
+
+            // 1. YouTube Watch / Shorts URL
+            const ytMatch = vUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|shorts\/|watch\?.+&v=))([\w-]{11})/i);
+            if (ytMatch && ytMatch[1]) {
+              const embedUrl = `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=0&rel=0`;
+              return `
+                <div class="cs-video-card">
+                  <div class="cs-video-thumb-wrap">
+                    <iframe src="${embedUrl}" title="${escapeHtml(vTitle)}" style="width:100%; height:100%; border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div class="cs-video-card-body">
+                    <h4 class="cs-video-card-title">${escapeHtml(vTitle)}</h4>
+                    <p class="cs-video-card-desc">${isAr ? 'مقطع مرئي للمشروع' : 'Official project video reel'}</p>
+                  </div>
+                </div>
+              `;
+            }
+
+            // 2. Vimeo URL
+            const vimeoMatch = vUrl.match(/vimeo\.com\/(?:video\/)?([0-9]+)/i);
+            if (vimeoMatch && vimeoMatch[1]) {
+              const embedUrl = `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+              return `
+                <div class="cs-video-card">
+                  <div class="cs-video-thumb-wrap">
+                    <iframe src="${embedUrl}" title="${escapeHtml(vTitle)}" style="width:100%; height:100%; border:0;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <div class="cs-video-card-body">
+                    <h4 class="cs-video-card-title">${escapeHtml(vTitle)}</h4>
+                    <p class="cs-video-card-desc">${isAr ? 'مقطع مرئي للمشروع' : 'Official project video reel'}</p>
+                  </div>
+                </div>
+              `;
+            }
+
+            // 3. Direct HTML5 Video
+            return `
+              <div class="cs-video-card">
+                <div class="cs-video-thumb-wrap">
+                  <video src="${escapeHtml(vUrl)}" controls playsinline webkit-playsinline preload="metadata">
+                    <source src="${escapeHtml(vUrl)}" type="video/mp4">
+                    <source src="${escapeHtml(vUrl)}" type="video/webm">
+                    <source src="${escapeHtml(vUrl)}" type="video/quicktime">
+                  </video>
+                </div>
+                <div class="cs-video-card-body">
+                  <h4 class="cs-video-card-title">${escapeHtml(vTitle)}</h4>
+                  <p class="cs-video-card-desc">${isAr ? 'مقطع مرئي ترويجي للمشروع' : 'Official project video reel'}</p>
+                </div>
+              </div>
+            `;
+          }).filter(Boolean).join('');
+        } else {
+          videoSection.style.display = 'none';
+        }
+
+        document.getElementById('csNavAll').textContent = isAr ? '← استكشاف جميع المشاريع' : '← Explore All Projects';
+      }
+
+      setLang(currentLang);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Egypt Creative — Admin Login</title>
+  <link rel="manifest" href="admin-manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="EC Admin" />
+  <meta name="theme-color" content="#FFB800" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="icon" href="favicon-32x32.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%; height: 100%;
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+      background: #07090E;
+    }
+
+    .login-page {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    /* LEFT BRAND PANEL */
+    .login-left {
+      position: relative;
+      background: #07090E;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 3.5rem;
+    }
+
+    .login-left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 20%, rgba(255, 184, 0, 0.12), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(0, 180, 216, 0.07), transparent 50%);
+      pointer-events: none;
+    }
+
+    .login-left::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 184, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 184, 0, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .brand-block { position: relative; z-index: 2; }
+    .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #FFB800;
+      letter-spacing: 2px;
+      display: block;
+    }
+    .brand-tagline {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-top: 6px;
+      display: block;
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+    .hero-content h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .hero-content h1 em { font-style: normal; color: #FFB800; }
+    .hero-content p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      max-width: 440px;
+    }
+
+    .feature-pills {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2rem;
+    }
+    .feature-pills span {
+      background: rgba(255, 184, 0, 0.08);
+      border: 1px solid rgba(255, 184, 0, 0.2);
+      color: #FFB800;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    .left-footer {
+      position: relative; z-index: 2;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* RIGHT FORM PANEL */
+    .login-right {
+      background: #0A0E17;
+      border-left: 1px solid rgba(255, 184, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3.5rem 2.75rem;
+      position: relative;
+      overflow-y: auto;
+    }
+
+    .login-right::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #FFB800, #FF6B00, #FFB800);
+    }
+
+    .form-header { margin-bottom: 2.5rem; }
+    .welcome-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #FFB800;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .form-header h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .form-header p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.5rem;
+    }
+
+    .field-group {
+      display: flex; flex-direction: column; gap: 6px; margin-bottom: 1.25rem;
+    }
+    .field-group label {
+      font-size: 0.82rem; font-weight: 600; color: #94A3B8;
+    }
+    .field-group input {
+      width: 100%;
+      padding: 14px 16px;
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .field-group input:focus {
+      border-color: #FFB800;
+      box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.12);
+    }
+
+    .form-actions-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .forgot-link {
+      color: #FFB800;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .forgot-link:hover { text-decoration: underline; color: #FFA800; }
+
+    .btn-signin {
+      width: 100%;
+      padding: 15px;
+      background: #FFB800;
+      color: #000;
+      font-size: 1rem;
+      font-weight: 800;
+      font-family: inherit;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-signin:hover {
+      background: #FFA800;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 184, 0, 0.35);
+    }
+
+    .login-err {
+      display: none;
+      margin-top: 1.25rem;
+      padding: 12px 16px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: 8px;
+      color: #F87171;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    .login-err.visible { display: block; }
+
+    .form-footer-note {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .form-footer-note span {
+      font-size: 0.8rem; color: rgba(255,255,255,0.25); line-height: 1.5;
+    }
+    .lock-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(255, 184, 0, 0.08);
+      border: 1px solid rgba(255, 184, 0, 0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+
+    .mobile-brand-header { display: none; }
+    @media (max-width: 900px) {
+      .login-page { grid-template-columns: 1fr; }
+      .login-left { display: none; }
+      .login-right { padding: 2.5rem 1.5rem; justify-content: flex-start; }
+      .mobile-brand-header { display: block; text-align: center; margin-bottom: 2rem; }
+      .field-group input { font-size: 16px !important; min-height: 48px; }
+      .btn-signin { min-height: 50px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-page">
+
+  <!-- LEFT BRAND PANEL -->
+  <div class="login-left">
+    <div class="brand-block">
+      <span class="brand-name">EGYPT CREATIVE</span>
+      <span class="brand-tagline">ENTERPRISE CONTROL PANEL</span>
+    </div>
+
+    <div class="hero-content">
+      <h1>Manage your<br />agency at <em>full speed.</em></h1>
+      <p>
+        One unified platform to control website content, track real-time leads, monitor WhatsApp interactions, and manage agency operations.
+      </p>
+      <div class="feature-pills">
+        <span>📊 Real-time Analytics</span>
+        <span>💬 WhatsApp Lead Tracking</span>
+        <span>🗂️ CRM Pipeline</span>
+        <span>📄 Full CMS</span>
+        <span>🔍 SEO Management</span>
+        <span>📂 Media Storage</span>
+      </div>
+    </div>
+
+    <div class="left-footer">
+      © 2026 Egypt Creative. All rights reserved.
+    </div>
+  </div>
+
+  <!-- RIGHT FORM PANEL -->
+  <div class="login-right">
+
+    <!-- Mobile Brand Header (Shown on mobile screens) -->
+    <div class="mobile-brand-header">
+      <div style="font-family: 'Syne', sans-serif; font-size: 1.85rem; font-weight: 800; color: #FFB800; letter-spacing: 2px;">EGYPT CREATIVE</div>
+      <div style="font-size: 0.72rem; color: #94A3B8; letter-spacing: 3.5px; font-weight: 600; margin-top: 4px;">CONTROL PANEL</div>
+    </div>
+
+    <!-- INITIALIZATION SPINNER -->
+    <div id="authLoadingState" style="text-align: center; padding: 3rem 0;">
+      <div style="width: 40px; height: 40px; border: 3px solid rgba(255,184,0,0.2); border-top-color: #FFB800; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem;"></div>
+      <p style="color: #94A3B8; font-size: 0.9rem;">Checking system status...</p>
+    </div>
+    <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+
+    <!-- INITIAL SETUP PANEL (Shown ONLY when 0 users exist) -->
+    <div id="setupPanel" style="display: none;">
+      <div class="form-header">
+        <span class="welcome-label">👑 INITIAL ADMIN SETUP</span>
+        <h2>CREATE YOUR SUPER ADMIN</h2>
+        <p>Set up the first Super Admin account to lock and secure your Egypt Creative Control Panel.</p>
+      </div>
+
+      <form id="setupForm" autocomplete="off">
+        <div class="field-group">
+          <label for="setupName">Full Name *</label>
+          <input type="text" id="setupName" placeholder="Owner Name" required />
+        </div>
+
+        <div class="field-group">
+          <label for="setupEmail">Email Address / Username *</label>
+          <input type="text" id="setupEmail" placeholder="admin or admin@egyptcreative.com" required />
+        </div>
+
+        <div class="field-group">
+          <label for="setupPass">Super Admin Password *</label>
+          <input type="password" id="setupPass" placeholder="••••••••••••" minlength="8" required />
+        </div>
+
+        <div class="field-group">
+          <label for="confirmPass">Confirm Password *</label>
+          <input type="password" id="confirmPass" placeholder="••••••••••••" minlength="8" required />
+        </div>
+
+        <button type="submit" class="btn-signin" id="setupSubmitBtn" style="margin-top: 1rem;">Create Super Admin →</button>
+
+        <div id="setupErr" class="login-err"></div>
+      </form>
+    </div>
+
+    <!-- NORMAL LOGIN PANEL (Shown when users exist) -->
+    <div id="loginPanel" style="display: none;">
+      <div class="form-header">
+        <span class="welcome-label">WELCOME BACK</span>
+        <h2>Sign in to your<br />control panel</h2>
+        <p>Enter your administrator credentials to continue.</p>
+      </div>
+
+      <form id="loginForm">
+        <div class="field-group">
+          <label for="adminEmail">Username or Email Address</label>
+          <input
+            type="text"
+            id="adminEmail"
+            placeholder="admin or admin@egyptcreative.com"
+            required
+            autocomplete="username"
+          />
+        </div>
+
+        <div class="field-group">
+          <label for="adminPass">Password</label>
+          <input
+            type="password"
+            id="adminPass"
+            placeholder="Enter your password"
+            required
+            autocomplete="current-password"
+          />
+        </div>
+
+        <div class="form-actions-row">
+          <span></span>
+          <a href="forgot-password.html" class="forgot-link">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn-signin" id="signinBtn">Sign In →</button>
+
+        <div id="loginErr" class="login-err">Invalid email or password. Please try again.</div>
+      </form>
+    </div>
+
+    <div class="form-footer-note">
+      <div class="lock-icon">🔒</div>
+      <span>Secured with server-side authentication.<br />Sessions are encrypted and time-limited.</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  'use strict';
+
+  const API_BASE = (window.location.protocol === 'file:' || window.location.port === '3000' || window.location.port === '8080')
+    ? 'http://localhost:3000/api'
+    : 'api.php';
+
+  const authLoadingState = document.getElementById('authLoadingState');
+  const setupPanel        = document.getElementById('setupPanel');
+  const loginPanel        = document.getElementById('loginPanel');
+
+  const setupForm         = document.getElementById('setupForm');
+  const setupName         = document.getElementById('setupName');
+  const setupEmail        = document.getElementById('setupEmail');
+  const setupPass         = document.getElementById('setupPass');
+  const confirmPass       = document.getElementById('confirmPass');
+  const setupSubmitBtn    = document.getElementById('setupSubmitBtn');
+  const setupErr          = document.getElementById('setupErr');
+
+  const loginForm         = document.getElementById('loginForm');
+  const adminEmail        = document.getElementById('adminEmail');
+  const adminPass         = document.getElementById('adminPass');
+  const loginErr          = document.getElementById('loginErr');
+  const signinBtn         = document.getElementById('signinBtn');
+
+  (async function initAdminAuthPage() {
+    // Fast fail-safe: never get stuck on spinner
+    const spinnerTimeout = setTimeout(() => {
+      if (authLoadingState && authLoadingState.style.display !== 'none') {
+        authLoadingState.style.display = 'none';
+        if (loginPanel) loginPanel.style.display = 'block';
+      }
+    }, 1500);
+
+    try {
+      const setupRes = await fetch(`${API_BASE}?action=check_setup_status&_t=${Date.now()}`).then(r => r.json()).catch(() => null);
+      clearTimeout(spinnerTimeout);
+
+      if (setupRes && setupRes.first_run) {
+        if (authLoadingState) authLoadingState.style.display = 'none';
+        if (loginPanel) loginPanel.style.display = 'none';
+        if (setupPanel) setupPanel.style.display = 'block';
+        return;
+      }
+
+      // Always show Login Form on admin auth page
+      if (authLoadingState) authLoadingState.style.display = 'none';
+      if (setupPanel) setupPanel.style.display = 'none';
+      if (loginPanel) loginPanel.style.display = 'block';
+    } catch (e) {
+      clearTimeout(spinnerTimeout);
+      if (authLoadingState) authLoadingState.style.display = 'none';
+      if (setupPanel) setupPanel.style.display = 'none';
+      if (loginPanel) loginPanel.style.display = 'block';
+    }
+  })();
+
+  // --- INITIAL SETUP SUBMIT HANDLER ---
+  setupForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name    = setupName.value.trim();
+    const email   = setupEmail.value.trim();
+    const pass    = setupPass.value.trim();
+    const confirm = confirmPass.value.trim();
+
+    if (!email || !pass || !confirm) return;
+
+    if (pass.length < 8) {
+      setupErr.textContent = 'Password must be at least 8 characters long.';
+      setupErr.classList.add('visible');
+      return;
+    }
+
+    if (pass !== confirm) {
+      setupErr.textContent = 'Passwords do not match. Please verify.';
+      setupErr.classList.add('visible');
+      return;
+    }
+
+    setupErr.classList.remove('visible');
+    setupSubmitBtn.disabled = true;
+    setupSubmitBtn.textContent = 'Creating Super Admin...';
+
+    try {
+      const res = await fetch(`${API_BASE}?action=setup_super_admin`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, username: email, password: pass, confirm_password: confirm })
+      }).then(r => r.json());
+
+      if (res && res.success) {
+        setupSubmitBtn.textContent = '✓ Account Created! Redirecting...';
+        setupSubmitBtn.style.background = '#10B981';
+        setTimeout(() => window.location.replace('dashboard.html'), 500);
+      } else {
+        setupErr.textContent = (res && res.message) ? res.message : 'Setup failed.';
+        setupErr.classList.add('visible');
+        setupSubmitBtn.disabled = false;
+        setupSubmitBtn.textContent = 'Create Super Admin →';
+      }
+    } catch (err) {
+      setupErr.textContent = 'Connection error: Could not reach API server.';
+      setupErr.classList.add('visible');
+      setupSubmitBtn.disabled = false;
+      setupSubmitBtn.textContent = 'Create Super Admin →';
+    }
+  });
+
+  // --- NORMAL LOGIN SUBMIT HANDLER ---
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = adminEmail.value.trim();
+    const pass  = adminPass.value.trim();
+    if (!email || !pass) return;
+
+    loginErr.classList.remove('visible');
+    signinBtn.disabled = true;
+    signinBtn.textContent = 'Signing in...';
+
+    try {
+      const res = await fetch(`${API_BASE}?action=login`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, username: email, password: pass })
+      }).then(r => r.json());
+
+      if (res && res.success) {
+        signinBtn.textContent = '✓ Authenticated! Redirecting...';
+        signinBtn.style.background = '#10B981';
+        setTimeout(() => window.location.replace('dashboard.html'), 300);
+      } else {
+        loginErr.textContent = (res && res.message) ? res.message : 'Invalid email or password.';
+        loginErr.classList.add('visible');
+        signinBtn.disabled = false;
+        signinBtn.textContent = 'Sign In →';
+      }
+    } catch (err) {
+      loginErr.textContent = 'Connection error: Could not reach API server.';
+      loginErr.classList.add('visible');
+      signinBtn.disabled = false;
+      signinBtn.textContent = 'Sign In →';
+    }
+  });
+</script>
+
+</body>
+</html>

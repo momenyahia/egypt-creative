@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin.html
+Disallow: /dashboard.html
+Disallow: /api.php
+
+Sitemap: https://egyptcreative.com/sitemap.xml

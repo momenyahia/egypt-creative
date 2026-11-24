@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Egypt Marketing Agency — Grow Beyond Borders</title>
+  <meta name="description" content="Egypt Marketing Agency — A full-service digital marketing agency helping brands grow through creative strategy, social media, content, SEO, and video production." />
+  <meta name="keywords" content="marketing agency egypt, digital marketing, social media, content creation, SEO, branding" />
+
+  <!-- Favicon & Branded Logo Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Open Graph & Social Media Metadata -->
+  <meta property="og:title" content="Egypt Marketing Agency — Grow Beyond Borders" />
+  <meta property="og:description" content="Grow Beyond Borders — Full-service digital marketing agency." />
+  <meta property="og:image" content="https://egyptcreative.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://egyptcreative.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://egyptcreative.com/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&family=Alexandria:wght@400;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="app.css?v=20260904-v10000005" />
+  <script>
+    (function(){
+      var t = localStorage.getItem('agency_theme') || localStorage.getItem('ec_theme');
+      if (t === 'light') {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+  <div id="preloader" role="status" aria-label="Loading">
+    <div class="pre-inner">
+      <div class="pre-logo">
+        <img src="assets/logo-white.png" alt="Egypt Creative" class="logo-img logo-img-white preloader-logo-img" />
+        <img src="assets/logo-black.png" alt="Egypt Creative" class="logo-img logo-img-black preloader-logo-img" />
+      </div>
+      <div class="pre-bar-wrap"><div class="pre-bar"></div></div>
+    </div>
+  </div>
+
+  <!-- Inline fail-safe: guarantees preloader dismisses within 1.2s max on all devices -->
+  <script>
+    (function(){
+      var p = document.getElementById('preloader');
+      if (!p) return;
+      var dismiss = function() {
+        if (!p || p.classList.contains('done')) return;
+        p.classList.add('done');
+        setTimeout(function(){ if(p && p.parentNode) p.parentNode.removeChild(p); }, 600);
+      };
+      if (document.readyState === 'complete') { setTimeout(dismiss, 400); }
+      else { window.addEventListener('load', function(){ setTimeout(dismiss, 500); }); }
+      setTimeout(dismiss, 1200);
+    })();
+  </script>
+
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div id="cur-dot" aria-hidden="true"></div>
+  <div id="cur-ring" aria-hidden="true"></div>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header id="site-header">
+    <nav class="nav-wrap" role="navigation" aria-label="Main navigation">
+      <a href="#home" class="nav-logo" aria-label="Egypt Creative Marketing Agency Home">
+        <img src="assets/logo-white.png" alt="Egypt Creative Marketing Agency" class="logo-img logo-img-white" />
+        <img src="assets/logo-black.png" alt="Egypt Creative Marketing Agency" class="logo-img logo-img-black" />
+      </a>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#home"     class="nav-link" data-i18n="nav.home">HOME</a></li>
+        <li><a href="#about"    class="nav-link" data-i18n="nav.about">WHO WE ARE</a></li>
+        <li><a href="#services" class="nav-link" data-i18n="nav.services">SERVICES</a></li>
+        <li><a href="#work"     class="nav-link" data-i18n="nav.work">OUR WORK</a></li>
+        <li style="display:none;"><a href="#team"     class="nav-link" data-i18n="nav.team">TEAM</a></li>
+        <li><a href="#contact"  class="nav-link" data-i18n="nav.contact">CONTACT</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Light/Dark Theme" title="Toggle Theme">
+          <span class="theme-icon" id="themeIcon">☀️</span>
+        </button>
+        <button class="lang-toggle-btn" id="langToggle" aria-label="Toggle Language" title="Change Language">
+          <span class="lang-code" id="langCode">عربي</span>
+        </button>
+        <a href="#contact" class="btn-cta" id="navCta" data-i18n="nav.cta">Get a Quote</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobile navigation" hidden>
+      <ul role="list">
+        <li><a href="#home"     class="mob-link" onclick="closeMenu()" data-i18n="nav.home">HOME</a></li>
+        <li><a href="#about"    class="mob-link" onclick="closeMenu()" data-i18n="nav.about">WHO WE ARE</a></li>
+        <li><a href="#services" class="mob-link" onclick="closeMenu()" data-i18n="nav.services">SERVICES</a></li>
+        <li><a href="#work"     class="mob-link" onclick="closeMenu()" data-i18n="nav.work">OUR WORK</a></li>
+        <li><a href="#contact"  class="mob-link" onclick="closeMenu()" data-i18n="nav.contact">CONTACT</a></li>
+      </ul>
+      <a href="#contact" class="btn-cta mob-cta" onclick="closeMenu()" data-i18n="nav.cta">Get a Quote</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section id="home" class="hero" aria-label="Hero">
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-sticky">
+        <div class="hero-content">
+          <div class="hero-badge reveal" data-i18n="hero.badge">
+            Egyptian creativity. Global impact.
+          </div>
+          
+          <div class="hero-steps-container">
+            <div class="hero-step step-1 active">
+              <h1 class="hero-heading" data-i18n="hero.step1">We Make Brands <span class="accent-line"><em>Unforgettable.</em></span></h1>
+            </div>
+            <div class="hero-step step-2 before">
+              <h1 class="hero-heading" data-i18n="hero.step2">Across Egypt &amp; <span class="accent-line"><em>Beyond.</em></span></h1>
+            </div>
+            <div class="hero-step step-3 before">
+              <h1 class="hero-heading" data-i18n="hero.step3">Full-Service Digital <span class="accent-line"><em>Marketing Agency.</em></span></h1>
+            </div>
+            <div class="hero-step step-4 before">
+              <h1 class="hero-heading" data-i18n="hero.step4">From Content &amp; Social to <span class="accent-line"><em>Data Growth.</em></span></h1>
+            </div>
+          </div>
+
+          <div class="hero-actions reveal-fade">
+            <a href="#work" class="btn-primary" id="heroWorkBtn" data-i18n="hero.ctaWork">See Our Work</a>
+            <a href="#contact" class="btn-ghost" id="heroContactBtn">
+              <span class="play-icon" aria-hidden="true">&#9654;</span>
+              <span data-i18n="hero.ctaStart">Start a Project</span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-scroll-hint" aria-label="Scroll down">
+          <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+          <span data-i18n="hero.scroll">Scroll</span>
+        </div>
+
+        <div class="hero-marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <span>Social Media</span><span class="sep">&#10022;</span>
+            <span>Content Creation</span><span class="sep">&#10022;</span>
+            <span>SEO &amp; SEM</span><span class="sep">&#10022;</span>
+            <span>Video Production</span><span class="sep">&#10022;</span>
+            <span>Brand Strategy</span><span class="sep">&#10022;</span>
+            <span>Influencer Marketing</span><span class="sep">&#10022;</span>
+            <span>Email Campaigns</span><span class="sep">&#10022;</span>
+            <span>Social Media</span><span class="sep">&#10022;</span>
+            <span>Content Creation</span><span class="sep">&#10022;</span>
+            <span>SEO &amp; SEM</span><span class="sep">&#10022;</span>
+            <span>Video Production</span><span class="sep">&#10022;</span>
+            <span>Brand Strategy</span><span class="sep">&#10022;</span>
+            <span>Influencer Marketing</span><span class="sep">&#10022;</span>
+            <span>Email Campaigns</span><span class="sep">&#10022;</span>
+            <span>Social Media</span><span class="sep">&#10022;</span>
+            <span>Content Creation</span><span class="sep">&#10022;</span>
+            <span>SEO &amp; SEM</span><span class="sep">&#10022;</span>
+            <span>Video Production</span><span class="sep">&#10022;</span>
+            <span>Brand Strategy</span><span class="sep">&#10022;</span>
+            <span>Influencer Marketing</span><span class="sep">&#10022;</span>
+            <span>Email Campaigns</span><span class="sep">&#10022;</span>
+            <span>Social Media</span><span class="sep">&#10022;</span>
+            <span>Content Creation</span><span class="sep">&#10022;</span>
+            <span>SEO &amp; SEM</span><span class="sep">&#10022;</span>
+            <span>Video Production</span><span class="sep">&#10022;</span>
+            <span>Brand Strategy</span><span class="sep">&#10022;</span>
+            <span>Influencer Marketing</span><span class="sep">&#10022;</span>
+            <span>Email Campaigns</span><span class="sep">&#10022;</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats-band" aria-label="Agency statistics">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-num" data-target="2000">2000</span><span class="stat-plus">+</span>
+            <p data-i18n="stats.clients">Clients Served</p>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="16">16</span><span class="stat-plus">+</span>
+            <p data-i18n="stats.exp">Years of Experience</p>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="3000">3000</span><span class="stat-plus">+</span>
+            <p data-i18n="stats.campaigns">Campaigns Launched</p>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="98">98</span><span class="stat-plus">%</span>
+            <p data-i18n="stats.satisfaction">Client Satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT (WHO WE ARE - 3 SLIDES) ===== -->
+    <section id="about" class="section about-section" aria-label="Who We Are">
+      <div class="container">
+
+        <!-- Top Tabs Bar for Slides -->
+        <div class="about-tabs-wrapper">
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:1rem;">
+            <div class="section-label" data-i18n="about.tag" style="margin-bottom:0;">Who We Are</div>
+            <span class="established-badge" style="font-size:0.75rem; font-weight:700; color:var(--gold); background:rgba(255,184,0,0.1); border:1px solid rgba(255,184,0,0.25); padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:1px;">Established in Cairo · 2011</span>
+          </div>
+          <div class="about-tabs-nav" role="tablist" aria-label="About section tabs">
+            <button class="about-tab-btn active" data-slide="0" role="tab" aria-selected="true" data-i18n="about.tab1">Who We Are</button>
+            <button class="about-tab-btn" data-slide="1" role="tab" aria-selected="false" data-i18n="about.tab2">Our Vision</button>
+            <button class="about-tab-btn" data-slide="2" role="tab" aria-selected="false" data-i18n="about.tab3">Our Mission</button>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-visual">
+            <style>
+              .about-kpi-showcase {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 16px !important;
+                padding: 22px !important;
+                background: rgba(14, 18, 26, 0.8) !important;
+                border: 1px solid rgba(255, 184, 0, 0.25) !important;
+                border-radius: 20px !important;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 184, 0, 0.04) !important;
+                backdrop-filter: blur(16px) !important;
+                box-sizing: border-box !important;
+              }
+              .kpi-main-card {
+                background: linear-gradient(135deg, rgba(255, 184, 0, 0.12), rgba(20, 26, 38, 0.95)) !important;
+                border: 1px solid rgba(255, 184, 0, 0.35) !important;
+                border-radius: 16px !important;
+                padding: 20px 20px !important;
+                text-align: center !important;
+                position: relative !important;
+              }
+              .kpi-main-badge {
+                display: inline-block !important;
+                font-size: 0.7rem !important;
+                font-weight: 700 !important;
+                color: #FFB800 !important;
+                background: rgba(255, 184, 0, 0.15) !important;
+                border: 1px solid rgba(255, 184, 0, 0.3) !important;
+                padding: 4px 12px !important;
+                border-radius: 20px !important;
+                text-transform: uppercase !important;
+                letter-spacing: 1px !important;
+                margin-bottom: 8px !important;
+              }
+              .kpi-main-val {
+                font-family: 'Outfit', sans-serif !important;
+                font-weight: 800 !important;
+                font-size: 2.6rem !important;
+                color: #FFB800 !important;
+                line-height: 1 !important;
+                margin-bottom: 4px !important;
+                text-shadow: 0 0 20px rgba(255, 184, 0, 0.3) !important;
+              }
+              .kpi-main-lbl {
+                font-size: 0.85rem !important;
+                font-weight: 600 !important;
+                color: #CBD5E1 !important;
+                letter-spacing: 0.5px !important;
+              }
+              .kpi-sub-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+                width: 100% !important;
+              }
+              .kpi-sub-card {
+                background: rgba(20, 26, 38, 0.85) !important;
+                border: 1px solid rgba(255, 255, 255, 0.08) !important;
+                border-radius: 14px !important;
+                padding: 14px 10px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                transition: all 0.3s ease !important;
+                box-sizing: border-box !important;
+              }
+              .kpi-sub-card:hover {
+                border-color: rgba(255, 184, 0, 0.4) !important;
+                transform: translateY(-3px) !important;
+                background: rgba(255, 184, 0, 0.06) !important;
+              }
+              .kpi-icon {
+                font-size: 1.3rem !important;
+                margin-bottom: 4px !important;
+              }
+              .kpi-num {
+                font-family: 'Outfit', sans-serif !important;
+                font-weight: 800 !important;
+                font-size: 1.35rem !important;
+                color: #FFFFFF !important;
+                line-height: 1.1 !important;
+                margin-bottom: 2px !important;
+              }
+              .kpi-desc {
+                font-size: 0.72rem !important;
+                font-weight: 600 !important;
+                color: #94A3B8 !important;
+                line-height: 1.3 !important;
+              }
+
+              /* LIGHT MODE OVERRIDES FOR ABOUT KPI SHOWCASE CARD */
+              body.light-theme .about-kpi-showcase {
+                background: #FFFFFF !important;
+                border: 1px solid rgba(212, 155, 0, 0.4) !important;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+              }
+              body.light-theme .kpi-main-card {
+                background: linear-gradient(135deg, rgba(255, 184, 0, 0.15), rgba(248, 249, 250, 0.98)) !important;
+                border: 1px solid rgba(212, 155, 0, 0.4) !important;
+              }
+              body.light-theme .kpi-main-badge {
+                background: rgba(212, 155, 0, 0.15) !important;
+                color: #D49B00 !important;
+                border-color: rgba(212, 155, 0, 0.4) !important;
+              }
+              body.light-theme .kpi-main-val {
+                color: #D49B00 !important;
+                text-shadow: 0 0 15px rgba(212, 155, 0, 0.25) !important;
+              }
+              body.light-theme .kpi-main-lbl {
+                color: #1E293B !important;
+                font-weight: 700 !important;
+              }
+              body.light-theme .kpi-sub-card {
+                background: #F1F5F9 !important;
+                border: 1px solid rgba(0, 0, 0, 0.08) !important;
+              }
+              body.light-theme .kpi-sub-card:hover {
+                background: rgba(212, 155, 0, 0.1) !important;
+                border-color: rgba(212, 155, 0, 0.4) !important;
+              }
+              body.light-theme .kpi-num {
+                color: #0F172A !important;
+                font-weight: 800 !important;
+              }
+              body.light-theme .kpi-desc {
+                color: #334155 !important;
+                font-weight: 700 !important;
+              }
+
+              @media (max-width: 480px) {
+                .kpi-sub-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+                .about-kpi-showcase { padding: 14px !important; }
+                .kpi-main-val { font-size: 2.1rem !important; }
+              }
+            </style>
+
+            <div class="about-kpi-showcase">
+              <div class="kpi-main-card">
+                <div class="kpi-main-badge">⚡ Established 2011</div>
+                <div class="kpi-main-val">16+</div>
+                <div class="kpi-main-lbl" data-i18n="about.badgeExp">Years of Industry Experience</div>
+              </div>
+              <div class="kpi-sub-grid">
+                <div class="kpi-sub-card">
+                  <div class="kpi-icon">🚀</div>
+                  <div class="kpi-num">2000+</div>
+                  <div class="kpi-desc" data-i18n="about.badgeClients">Satisfied Clients</div>
+                </div>
+                <div class="kpi-sub-card">
+                  <div class="kpi-icon">📈</div>
+                  <div class="kpi-num">3000+</div>
+                  <div class="kpi-desc" data-i18n="about.badgeCampaigns">Campaigns Launched</div>
+                </div>
+                <div class="kpi-sub-card">
+                  <div class="kpi-icon">🏆</div>
+                  <div class="kpi-num">#1</div>
+                  <div class="kpi-desc" data-i18n="about.badgeRank">Marketing Agency in Egypt</div>
+                </div>
+                <div class="kpi-sub-card">
+                  <div class="kpi-icon">🔥</div>
+                  <div class="kpi-num">78%</div>
+                  <div class="kpi-desc" data-i18n="about.organicReach">Organic Growth Rate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-slider-container">
+            
+            <!-- Slide 1: Who We Are -->
+            <div class="about-slide active" data-slide-index="0">
+              <h2 class="section-title" data-i18n="about.slide1.title">Who We Are — <span class="accent">Egypt Creative</span></h2>
+              <p class="about-text" data-i18n="about.slide1.p1"></p>
+              <p class="about-text" data-i18n="about.slide1.p2"></p>
+              <p class="about-text" data-i18n="about.slide1.p3"></p>
+              <p class="about-text" data-i18n="about.slide1.p4"></p>
+              <p class="about-text" data-i18n="about.slide1.p5"></p>
+              <p class="about-text" data-i18n="about.slide1.p6"></p>
+            </div>
+
+            <!-- Slide 2: Our Vision -->
+            <div class="about-slide" data-slide-index="1">
+              <h2 class="section-title" data-i18n="about.slide2.title">Our Vision — <span class="accent">Competing On The World Stage</span></h2>
+              <p class="about-text" data-i18n="about.slide2.p1"></p>
+              <p class="about-text" data-i18n="about.slide2.p2"></p>
+              <p class="about-text" data-i18n="about.slide2.p3"></p>
+            </div>
+
+            <!-- Slide 3: Our Mission -->
+            <div class="about-slide" data-slide-index="2">
+              <h2 class="section-title" data-i18n="about.slide3.title">Our Mission — <span class="accent">Build, Launch, Grow &amp; Scale</span></h2>
+              <p class="about-text" data-i18n="about.slide3.p1"></p>
+              <p class="about-text" data-i18n="about.slide3.p2"></p>
+              <p class="about-text" data-i18n="about.slide3.p3"></p>
+              <p class="about-text" data-i18n="about.slide3.p4"></p>
+              <p class="about-text" data-i18n="about.slide3.p5"></p>
+            </div>
+
+            <!-- Slide Controls -->
+            <div class="about-slide-controls">
+              <div class="about-slide-dots">
+                <button class="slide-dot active" data-slide="0" aria-label="Slide 1: Who We Are"></button>
+                <button class="slide-dot" data-slide="1" aria-label="Slide 2: Our Vision"></button>
+                <button class="slide-dot" data-slide="2" aria-label="Slide 3: Our Mission"></button>
+              </div>
+              <div class="about-slide-arrows">
+                <button class="slide-arrow prev-slide" id="aboutPrev" aria-label="Previous Slide">‹</button>
+                <button class="slide-arrow next-slide" id="aboutNext" aria-label="Next Slide">›</button>
+              </div>
+            </div>
+
+            <div class="about-action-wrap">
+              <a href="#contact" class="btn-primary" data-i18n="about.btn">Work With Us</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="section services-section" aria-label="Our services">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label" data-i18n="svc.tag">SERVICES</div>
+          <h2 class="section-title" data-i18n="svc.title">Marketing Services<br>That <span class="accent">Drive Results</span></h2>
+          <p class="section-desc" data-i18n="svc.desc">Everything your brand needs to dominate the digital landscape — under one roof.</p>
+        </div>
+        <div class="services-grid">
+
+          <article class="svc-card featured" id="svc-strategy">
+            <div class="svc-badge">Core</div>
+            <div class="svc-num">01</div>
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="20" cy="20" r="12"/><line x1="29.5" y1="29.5" x2="42" y2="42"/>
+                <path d="M16 20h8M20 16v8"/>
+              </svg>
+            </div>
+            <h3 data-i18n="svc.s1.title">Strategy &amp; Planning</h3>
+            <p data-i18n="svc.s1.desc">Our experience across diverse industries has given us a deep understanding of different markets, audiences, and business challenges. We turn this cross-industry knowledge into smart strategies built around real insights and proven experience. From market understanding to audience behavior, every decision is carefully planned to create meaningful impact. Because great results don’t happen by chance — they start with the right strategy.</p>
+            <a href="#contact" class="svc-link" data-i18n="svc.explore">Explore Service →</a>
+          </article>
+
+          <article class="svc-card" id="svc-brand">
+            <div class="svc-num">02</div>
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 40L24 8l16 32H8z"/>
+                <path d="M16.5 30h15"/>
+              </svg>
+            </div>
+            <h3 data-i18n="svc.s2.title">Branding &amp; Design</h3>
+            <p data-i18n="svc.s2.desc">We build distinctive brands through powerful identities and thoughtful design. Our experience across diverse industries helps us create identities that connect with different audiences. From brand strategy and visual identity to campaigns and digital content, every detail has a purpose. Because a strong brand isn’t just recognized — it’s remembered.</p>
+            <a href="#contact" class="svc-link" data-i18n="svc.explore">Explore Service →</a>
+          </article>
+
+          <article class="svc-card" id="svc-social">
+            <div class="svc-num">03</div>
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="18" r="8"/><circle cx="36" cy="10" r="5"/><circle cx="36" cy="38" r="5"/>
+                <line x1="25.5" y1="13.5" x2="31" y2="12"/><line x1="25.5" y1="22.5" x2="31" y2="35"/>
+              </svg>
+            </div>
+            <h3 data-i18n="svc.s3.title">Social Media</h3>
+            <p data-i18n="svc.s3.desc">We build social media strategies that put your brand in the right conversations. From creative content to daily community management, we keep your audience engaged. We turn ideas into scroll-stopping content that strengthens your brand presence. And we use insights and performance data to continuously drive better results.</p>
+            <a href="#contact" class="svc-link" data-i18n="svc.explore">Explore Service →</a>
+          </article>
+
+          <article class="svc-card featured" id="svc-content">
+            <div class="svc-badge">Popular</div>
+            <div class="svc-num">04</div>
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="12" width="30" height="24" rx="3"/>
+                <path d="M34 20l10-6v20l-10-6V20z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="svc.s4.title">Content Production</h3>
+            <p data-i18n="svc.s4.desc">We create high-quality content that brings your brand’s story to life. From photography and video production to Reels, commercials, and UGC, we create content built to stand out. Every frame is crafted with a clear creative direction that reflects your brand identity. We turn ideas into visual experiences that capture attention and leave a lasting impression.</p>
+            <a href="#contact" class="svc-link" data-i18n="svc.explore">Explore Service →</a>
+          </article>
+
+          <article class="svc-card" id="svc-media">
+            <div class="svc-num">05</div>
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 34l10-14 8 10 6-8 12 12H6z"/>
+                <circle cx="38" cy="12" r="5"/>
+              </svg>
+            </div>
+            <h3 data-i18n="svc.s5.title">Media Buying &amp; Performance</h3>
+            <p data-i18n="svc.s5.desc">We put your brand in front of the right audience, at the right time, and in the right place. We build data-driven campaigns designed to maximize reach, engagement, leads, and sales. From Meta and Google to TikTok and other digital platforms, we manage every stage of your media investment. We continuously analyze performance, optimize campaigns, and turn your budget into measurable growth.</p>
+            <a href="#contact" class="svc-link" data-i18n="svc.explore">Explore Service →</a>
+          </article>
+
+          <article class="svc-card" id="svc-pr">
+            <div class="svc-num">06</div>
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="24" cy="14" r="8"/>
+                <path d="M8 40c0-8.8 7.2-16 16-16s16 7.2 16 16"/>
+                <path d="M36 22l6-6M42 28l-6-6"/>
+              </svg>
+            </div>
+            <h3 data-i18n="svc.s6.title">Public Relations</h3>
+            <p data-i18n="svc.s6.desc">We build powerful PR strategies that put your brand in the right conversations and in front of the right people. From media relations and press coverage to influencer and celebrity collaborations, we create visibility that builds trust. We connect brands with TV shows, media platforms, creators, and influential personalities to amplify their presence. Every opportunity is carefully selected to strengthen credibility, expand reach, and turn exposure into real brand value.</p>
+            <a href="#contact" class="svc-link" data-i18n="svc.explore">Explore Service →</a>
+          </article>
+
+          <article class="svc-card" id="svc-events">
+            <div class="svc-num">07</div>
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="14" width="36" height="28" rx="3"/>
+                <path d="M16 14V8M32 14V8M6 24h36"/>
+              </svg>
+            </div>
+            <h3 data-i18n="svc.s7.title">Events &amp; Activations</h3>
+            <p data-i18n="svc.s7.desc">We create experiences that bring brands to life and turn moments into lasting memories. From launches and corporate events to brand activations and experiential campaigns, we handle every detail. We combine creative concepts, production, entertainment, and audience engagement to create unforgettable experiences. Every event is designed to generate attention, build connections, and leave a powerful impression on your audience.</p>
+            <a href="#contact" class="svc-link" data-i18n="svc.explore">Explore Service →</a>
+          </article>
+
+          <article class="svc-card" id="svc-web">
+            <div class="svc-num">08</div>
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="8" width="40" height="32" rx="4"/>
+                <path d="M4 18h40M14 8v10"/>
+              </svg>
+            </div>
+            <h3 data-i18n="svc.s8.title">Web &amp; E-Commerce Development</h3>
+            <p data-i18n="svc.s8.desc">We design and develop modern websites and e-commerce experiences built around your brand and business goals. From corporate websites and landing pages to fully integrated online stores, we create digital experiences that are fast, intuitive, and conversion-focused. We combine creative design, seamless user experience, and powerful technology to turn visitors into customers. From concept to launch, we build digital platforms that look exceptional, perform flawlessly, and grow with your business.</p>
+            <a href="#contact" class="svc-link" data-i18n="svc.explore">Explore Service →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WORK / PORTFOLIO (EXACT USER 5-CIRCLE SCHEME) ===== -->
+    <section id="work" class="section work-section" aria-label="Selected Work" style="padding: 50px 0 80px; position:relative; overflow:hidden;">
+      <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-head text-center">
+          <div class="section-label" data-i18n="work.tag">OUR WORK</div>
+          <h2 class="section-title" data-i18n="work.title">Selected <span class="accent">Work</span></h2>
+          <p class="section-desc" data-i18n="work.desc" style="display:flex; align-items:center; justify-content:center; gap:12px;">
+            <span class="accent-line-left" style="display:inline-block; width:30px; height:1px; background:var(--gold); opacity:0.6;"></span>
+            <span>ننمي براندات تصنع أثراً حقيقياً</span>
+            <span class="accent-line-right" style="display:inline-block; width:30px; height:1px; background:var(--gold); opacity:0.6;"></span>
+          </p>
+        </div>
+
+        <!-- EXACT USER 5-CIRCLE STYLING & STRUCTURE -->
+        <style>
+          .circles-showcase-wrapper {
+            width: 100% !important;
+            max-width: 1250px !important;
+            margin: 2.5rem auto 1rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          .circles-row-stage {
+            display: flex !important;
+            align-items: flex-start !important;
+            justify-content: center !important;
+            gap: 12px !important;
+            width: 100% !important;
+            padding: 30px 10px 20px !important;
+            user-select: none !important;
+          }
+
+          .circle-card-item {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease !important;
+            cursor: pointer !important;
+            flex-shrink: 0 !important;
+            position: relative !important;
+          }
+
+          /* THE CIRCLE FRAME */
+          .circle-card-item .circle-box {
+            border-radius: 50% !important;
+            position: relative !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: radial-gradient(ellipse at 30% 20%, rgba(255, 184, 0, 0.12), transparent 60%), rgba(23, 19, 16, 0.95) !important;
+            border: 1.5px solid rgba(255, 184, 0, 0.35) !important;
+            box-shadow: 0 0 0 1px rgba(255, 184, 0, 0.06), 0 20px 40px rgba(0, 0, 0, 0.55), inset 0 0 20px rgba(255, 184, 0, 0.05) !important;
+            transition: all 0.4s ease !important;
+            padding: 16px !important;
+            box-sizing: border-box !important;
+          }
+
+          .circle-card-item .circle-box:hover {
+            transform: translateY(-6px) !important;
+            border-color: #FFB800 !important;
+            box-shadow: 0 0 0 1px rgba(255, 184, 0, 0.15), 0 0 40px rgba(255, 184, 0, 0.30), 0 26px 46px rgba(0, 0, 0, 0.6) !important;
+          }
+
+          /* BADGE AT TOP OF CIRCLE (HIDDEN AS REQUESTED BY USER) */
+          .circle-card-item .badge {
+            display: none !important;
+          }
+
+          /* CENTER / FEATURED CIRCLE — ELEGANT SOFT GOLD AURA */
+          .circle-card-item.featured {
+            width: 280px !important;
+            z-index: 10 !important;
+          }
+          .circle-card-item.featured .circle-box {
+            width: 220px !important;
+            height: 220px !important;
+            border: 2px solid #FFB800 !important;
+            box-shadow: 0 0 0 1px rgba(255, 184, 0, 0.15), 0 0 25px rgba(255, 184, 0, 0.18), 0 25px 50px rgba(0, 0, 0, 0.6) !important;
+            background: radial-gradient(ellipse at 30% 20%, rgba(255, 184, 0, 0.12), transparent 70%), #14100c !important;
+          }
+
+          /* NEAR SIDE CIRCLES */
+          .circle-card-item.near {
+            width: 170px !important;
+            opacity: 0.78 !important;
+            filter: saturate(0.8) !important;
+            transform: translateY(12px) !important;
+            z-index: 5 !important;
+          }
+          .circle-card-item.near .circle-box {
+            width: 130px !important;
+            height: 130px !important;
+          }
+
+          /* FAR SIDE CIRCLES */
+          .circle-card-item.far {
+            width: 140px !important;
+            opacity: 0.48 !important;
+            filter: saturate(0.6) !important;
+            transform: translateY(24px) !important;
+            z-index: 2 !important;
+          }
+          .circle-card-item.far .circle-box {
+            width: 100px !important;
+            height: 100px !important;
+          }
+
+          .circle-card-item.near:hover, .circle-card-item.far:hover {
+            opacity: 0.95 !important;
+          }
+
+          /* LOGO INSIDE CIRCLE — Elegant full view without edge-clipping */
+          .circle-brand-img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            padding: 8px !important;
+            box-sizing: border-box !important;
+            border-radius: 50% !important;
+            display: block !important;
+          }
+
+          /* CONTENT UNDERNEATH CIRCLE */
+          .circle-info-body {
+            margin-top: 14px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            width: 100% !important;
+          }
+          .circle-title {
+            font-family: 'Playfair Display', 'Outfit', var(--font-ar), Georgia, serif !important;
+            font-weight: 700 !important;
+            font-size: 1.05rem !important;
+            color: #FFFFFF !important;
+            letter-spacing: -0.01em !important;
+            margin-bottom: 2px !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            max-width: 100% !important;
+          }
+          .circle-card-item.featured .circle-title {
+            font-size: 1.1rem !important;
+            color: #FFB800 !important;
+          }
+          .circle-services {
+            font-size: 0.68rem !important;
+            font-weight: 600 !important;
+            color: #A39C8D !important;
+            margin-bottom: 10px !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            max-width: 100% !important;
+          }
+
+          .circle-cta-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 5px !important;
+            padding: 6px 13px !important;
+            font-size: 0.72rem !important;
+            font-weight: 700 !important;
+            border-radius: 50px !important;
+            background: rgba(255, 184, 0, 0.12) !important;
+            color: #FFB800 !important;
+            border: 1px solid rgba(255, 184, 0, 0.35) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+            transition: all 0.25s ease !important;
+            text-decoration: none !important;
+          }
+          .circle-cta-btn:hover {
+            background: #FFB800 !important;
+            color: #07090E !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 18px rgba(255, 184, 0, 0.35) !important;
+          }
+
+          /* NAV ARROWS AT BOTTOM */
+          .circles-nav-bar {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 20px !important;
+            margin-top: 1.75rem !important;
+          }
+          .circles-nav-btn {
+            width: 48px !important;
+            height: 48px !important;
+            border-radius: 50% !important;
+            background: rgba(23, 19, 16, 0.9) !important;
+            border: 1px solid rgba(255, 184, 0, 0.35) !important;
+            color: #FFB800 !important;
+            font-size: 1.6rem !important;
+            font-weight: 700 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+            user-select: none !important;
+            z-index: 25 !important;
+            position: relative !important;
+          }
+          .circles-nav-btn:hover {
+            background: #FFB800 !important;
+            color: #07090E !important;
+            border-color: #FFB800 !important;
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.4) !important;
+            transform: scale(1.08) !important;
+          }
+
+          @media (max-width: 850px) {
+            .circle-card-item.far { display: none !important; }
+            .circle-card-item.near { width: 130px !important; }
+            .circle-card-item.near .circle-box { width: 110px !important; height: 110px !important; }
+            .circle-card-item.featured { width: 220px !important; }
+            .circle-card-item.featured .circle-box { width: 170px !important; height: 170px !important; }
+          }
+
+          /* LIGHT THEME FOR SELECTED WORK (أعمال مختارة) */
+          body.light-theme #work,
+          body.light-theme .work-section {
+            background: #FFFFFF !important;
+          }
+          body.light-theme .circle-card-item .circle-box {
+            background: radial-gradient(ellipse at 30% 20%, rgba(255, 184, 0, 0.12), transparent 60%), #FFFFFF !important;
+            border: 1.5px solid rgba(212, 155, 0, 0.4) !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06), inset 0 0 15px rgba(255, 184, 0, 0.05) !important;
+          }
+          body.light-theme .circle-card-item .circle-box:hover {
+            border-color: #D49B00 !important;
+            box-shadow: 0 12px 30px rgba(212, 155, 0, 0.22) !important;
+          }
+          body.light-theme .circle-card-item.featured .circle-box {
+            background: radial-gradient(ellipse at 30% 20%, rgba(255, 184, 0, 0.15), transparent 70%), #FFFFFF !important;
+            border: 2px solid #D49B00 !important;
+            box-shadow: 0 0 25px rgba(212, 155, 0, 0.2), 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+          }
+          body.light-theme .circle-title {
+            color: #0F172A !important;
+          }
+          body.light-theme .circle-card-item.featured .circle-title {
+            color: #B45309 !important;
+          }
+          body.light-theme .circle-services {
+            color: #64748B !important;
+          }
+          body.light-theme .circle-cta-btn {
+            background: rgba(212, 155, 0, 0.12) !important;
+            color: #B45309 !important;
+            border-color: rgba(212, 155, 0, 0.35) !important;
+          }
+          body.light-theme .circle-cta-btn:hover {
+            background: #D49B00 !important;
+            color: #FFFFFF !important;
+          }
+          body.light-theme .circles-nav-btn {
+            background: #FFFFFF !important;
+            border-color: rgba(212, 155, 0, 0.4) !important;
+            color: #D49B00 !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+          }
+          body.light-theme .circles-nav-btn:hover {
+            background: #D49B00 !important;
+            color: #FFFFFF !important;
+          }
+
+          /* ELEGANT COMPACT TRUSTED BY CLIENT MARQUEE */
+          .clients-label {
+            font-family: var(--font-head), var(--font-ar), sans-serif !important;
+            font-size: 0.95rem !important;
+            font-weight: 800 !important;
+            letter-spacing: 1.5px !important;
+            color: #FFB800 !important;
+            text-align: center !important;
+            margin-bottom: 12px !important;
+            text-transform: uppercase !important;
+          }
+          body.light-theme .clients-label {
+            color: #B45309 !important;
+          }
+
+          .clients-marquee {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            align-items: center !important;
+            width: 100% !important;
+            max-width: 980px !important;
+            margin: 10px auto 0 auto !important;
+            overflow: hidden !important;
+            position: relative !important;
+            padding: 10px 0 !important;
+            border-top: 1px solid rgba(255, 184, 0, 0.2) !important;
+            border-bottom: 1px solid rgba(255, 184, 0, 0.2) !important;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent) !important;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent) !important;
+          }
+
+          body.light-theme .clients-marquee {
+            border-top: 1px solid rgba(212, 155, 0, 0.25) !important;
+            border-bottom: 1px solid rgba(212, 155, 0, 0.25) !important;
+          }
+
+          .clients-track {
+            display: inline-flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            align-items: center !important;
+            gap: 16px !important;
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
+            animation: marqueeSingleLine 95s linear infinite !important;
+            will-change: transform !important;
+          }
+
+          .clients-marquee:hover .clients-track,
+          .clients-marquee:active .clients-track {
+            animation-play-state: paused !important;
+          }
+
+          .cl-item {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            flex-shrink: 0 !important;
+            padding: 5px 14px !important;
+            height: 38px !important;
+            background: rgba(255, 255, 255, 0.04) !important;
+            border: 1px solid rgba(255, 184, 0, 0.25) !important;
+            border-radius: 50px !important;
+            transition: all 0.25s ease !important;
+            text-decoration: none !important;
+          }
+
+          body.light-theme .cl-item {
+            background: #FFFFFF !important;
+            border: 1px solid rgba(212, 155, 0, 0.3) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+          }
+
+          .cl-item:hover {
+            background: rgba(255, 184, 0, 0.15) !important;
+            border-color: #FFB800 !important;
+            transform: translateY(-2px) !important;
+          }
+
+          .cl-item-logo {
+            width: 22px !important;
+            height: 22px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            flex-shrink: 0 !important;
+            border: 1px solid rgba(255, 184, 0, 0.3) !important;
+          }
+
+          .client-name-badge {
+            font-family: 'Outfit', 'Inter', var(--font-ar), sans-serif !important;
+            font-size: 0.82rem !important;
+            font-weight: 700 !important;
+            color: #E2E8F0 !important;
+            letter-spacing: 0.02em !important;
+            white-space: nowrap !important;
+            transition: color 0.25s ease !important;
+          }
+
+          body.light-theme .client-name-badge {
+            color: #1E293B !important;
+          }
+
+          .cl-item:hover .client-name-badge {
+            color: #FFB800 !important;
+          }
+          body.light-theme .cl-item:hover .client-name-badge {
+            color: #B45309 !important;
+          }
+
+          @keyframes marqueeSingleLine {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+          }
+
+          body.rtl .clients-track,
+          html[dir="rtl"] .clients-track,
+          [dir="rtl"] .clients-track,
+          html[lang="ar"] .clients-track,
+          body[dir="rtl"] .clients-track {
+            animation: marqueeSingleLineRTL 160s linear infinite !important;
+          }
+
+          @keyframes marqueeSingleLineRTL {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(50%, 0, 0); }
+          }
+
+          @media (max-width: 768px) {
+            .clients-track {
+              animation-duration: 130s !important;
+              gap: 12px !important;
+            }
+            body.rtl .clients-track,
+            html[dir="rtl"] .clients-track,
+            [dir="rtl"] .clients-track,
+            html[lang="ar"] .clients-track,
+            body[dir="rtl"] .clients-track {
+              animation-duration: 190s !important;
+            }
+          }
+
+          /* TESTIMONIAL CONTROLS UNIFIED (ARABIC + ENGLISH) */
+          .testi-controls {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 1.5rem !important;
+            margin-top: 1.5rem !important;
+            margin-bottom: 3.5rem !important;
+            direction: ltr !important;
+          }
+
+          .testi-btn {
+            width: 46px !important;
+            height: 46px !important;
+            border-radius: 50% !important;
+            background: rgba(22, 22, 22, 0.9) !important;
+            border: 1px solid rgba(255, 184, 0, 0.3) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #FFB800 !important;
+            transition: all 0.25s ease !important;
+            cursor: pointer !important;
+            user-select: none !important;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+          }
+
+          .testi-btn svg {
+            width: 20px !important;
+            height: 20px !important;
+            stroke: currentColor !important;
+            stroke-width: 2.2 !important;
+          }
+
+          .testi-btn:hover {
+            background: #FFB800 !important;
+            color: #07090E !important;
+            border-color: #FFB800 !important;
+            transform: scale(1.08) !important;
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.45) !important;
+          }
+
+          body.light-theme .testi-btn {
+            background: #FFFFFF !important;
+            border: 1.5px solid rgba(212, 155, 0, 0.4) !important;
+            color: #D49B00 !important;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06) !important;
+          }
+
+          body.light-theme .testi-btn:hover {
+            background: #D49B00 !important;
+            color: #FFFFFF !important;
+          }
+        </style>
+
+        <div class="circles-showcase-wrapper" id="circlesShowcaseWrapper">
+          <div class="circles-row-stage" id="circles">
+            <!-- Injected by JS using exact user array scheme -->
+          </div>
+
+          <div class="circles-nav-bar">
+            <button class="circles-nav-btn" id="circlesPrevBtn" aria-label="Previous Project">‹</button>
+            <button class="circles-nav-btn" id="circlesNextBtn" aria-label="Next Project">›</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== TEAM (CMS Controlled Toggle) ===== -->
+    <section id="team" class="section team-section" aria-label="Our team" style="display:none;">
+      <div class="container">
+        <div class="section-head text-center">
+          <div class="section-label" data-i18n="team.tag">Meet the Team</div>
+          <h2 class="section-title" data-i18n="team.title">The Minds Behind<br><span class="accent">Your Growth</span></h2>
+          <p class="section-desc" data-i18n="team.desc">A team of strategists, creatives, and data experts united by one mission — your success.</p>
+        </div>
+        <!-- Team cards will be dynamically rendered by script.js from CMS data -->
+        <div class="team-grid" id="teamGrid" aria-label="Team members"></div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section testimonials-section" aria-label="Client testimonials">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label" data-i18n="testi.tag">Testimonials</div>
+          <h2 class="section-title" data-i18n="testi.title">Clients Love<br><span class="accent">What We Do</span></h2>
+        </div>
+
+        <div class="testi-slider" id="testiSlider" aria-live="polite">
+          <div class="testi-track" id="testiTrack">
+
+            <blockquote class="testi-card active" id="testi-0">
+              <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <p>"وكالة إيجيبت كرييتف غيرت تواجدنا على وسائل التواصل الاجتماعي بالكامل. في خلال 3 أشهر فقط ارتفعت مبيعاتنا بنسبة 180% وزاد التفاعل بشكل غير مسبوق. أفضل استثمار قمنا به على الإطلاق."</p>
+              <footer>
+                <div class="testi-avatar" style="background:linear-gradient(135deg,#FFB800,#FF6B00)">م‌ح</div>
+                <div>
+                  <cite class="testi-name">محمد حسن</cite>
+                  <span class="testi-co">الرئيس التنفيذي، مجموعة حسن للأغذية</span>
+                </div>
+              </footer>
+            </blockquote>
+
+            <blockquote class="testi-card" id="testi-1">
+              <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <p>"إبداع الفريق لا مثيل له. حملة رمضان الإعلانية التي نفذوها حققت ملايين المشاهدات وأحدثت قفزة بنسبة 300% في حركة الزيارات للموقع. هم لا يقدمون مجرد عمل، بل يتجاوزون التوقعات دائماً."</p>
+              <footer>
+                <div class="testi-avatar" style="background:linear-gradient(135deg,#00b894,#00cec9)">ل‌ف</div>
+                <div>
+                  <cite class="testi-name">ليلى فاروق</cite>
+                  <span class="testi-co">مديرة التسويق، النيل للتجزئة</span>
+                </div>
+              </footer>
+            </blockquote>
+
+            <blockquote class="testi-card" id="testi-2">
+              <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <p>"تصدر موقعنا محركات البحث وجوجل في المرتبة الأولى للكلمات الرئيسية في 4 أشهر فقط. فريق التسويق الرقمي يتقن عمله باحترافية عالية، وتضاعفت المبيعات ثلاث مرات منذ بدء التعاون."</p>
+              <footer>
+                <div class="testi-avatar" style="background:linear-gradient(135deg,#a29bfe,#6c5ce7)">ط‌ز</div>
+                <div>
+                  <cite class="testi-name">طارق زكي</cite>
+                  <span class="testi-co">المؤسس، زكي لحلول التكنولوجيا</span>
+                </div>
+              </footer>
+            </blockquote>
+
+            <blockquote class="testi-card" id="testi-3">
+              <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <p>"من الاستراتيجية حتى التنفيذ، أداروا كل شيء بإتقان وسلاسة. الهوية التجارية الجديدة عصرية وقوية وتناسب تطلعات جمهورنا تماماً. نوصي بالتعامل معهم بشدة!"</p>
+              <footer>
+                <div class="testi-avatar" style="background:linear-gradient(135deg,#fd79a8,#e84393)">ر‌ع</div>
+                <div>
+                  <cite class="testi-name">رانيا عبد العزيز</cite>
+                  <span class="testi-co">الرئيس التنفيذي، لوكس العقارية</span>
+                </div>
+              </footer>
+            </blockquote>
+
+          </div>
+        </div>
+
+        <div class="testi-controls" role="group" aria-label="Testimonial navigation">
+          <button id="testiPrev" class="testi-btn" aria-label="Previous testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          </button>
+          <div class="testi-dots" id="testiDots" role="tablist" aria-label="Testimonials">
+            <button class="t-dot active" role="tab" aria-selected="true"  aria-controls="testi-0" data-i="0"></button>
+            <button class="t-dot"        role="tab" aria-selected="false" aria-controls="testi-1" data-i="1"></button>
+            <button class="t-dot"        role="tab" aria-selected="false" aria-controls="testi-2" data-i="2"></button>
+            <button class="t-dot"        role="tab" aria-selected="false" aria-controls="testi-3" data-i="3"></button>
+          </div>
+          <button id="testiNext" class="testi-btn" aria-label="Next testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <p class="clients-label" data-i18n="testi.trusted">Trusted By</p>
+        <div class="clients-marquee" aria-label="Our clients">
+          <div class="clients-track" id="clientsTrack">
+            <!-- 13 Clients Loop 1 -->
+            <a href="case-study.html?project=azzam-real-estate" class="cl-item">
+              <img src="assets/portfolio_web/logo_azzam-real-estate.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Azzam Real Estate" data-ar="عزام للاستثمار العقاري">عزام للاستثمار العقاري</span>
+            </a>
+            <a href="case-study.html?project=egypt-builders" class="cl-item">
+              <img src="assets/portfolio_web/logo_egypt-builders.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Egypt Builders" data-ar="إيجيبت بيلدرز للمقاولات">إيجيبت بيلدرز للمقاولات</span>
+            </a>
+            <a href="case-study.html?project=next-academy" class="cl-item">
+              <img src="assets/portfolio_web/logo_next-academy.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Next Academy" data-ar="أكاديمية نكست للإدارة">أكاديمية نكست للإدارة</span>
+            </a>
+            <a href="case-study.html?project=ramadan-majlis" class="cl-item">
+              <img src="assets/portfolio_web/logo_ramadan-majlis.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Ramadan Majlis" data-ar="مجلس رمضان للفعاليات">مجلس رمضان للفعاليات</span>
+            </a>
+            <a href="case-study.html?project=smile-care-clinics" class="cl-item">
+              <img src="assets/portfolio_web/logo_smile-care-clinics.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Smile Care Clinics" data-ar="عيادات سمايل كير">عيادات سمايل كير</span>
+            </a>
+            <a href="case-study.html?project=the-smile-center" class="cl-item">
+              <img src="assets/portfolio_web/logo_the-smile-center.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="The Smile Dental" data-ar="مركز ذا سمايل للأسنان">مركز ذا سمايل للأسنان</span>
+            </a>
+            <a href="case-study.html?project=german-bugs-control" class="cl-item">
+              <img src="assets/portfolio_web/logo_german-bugs-control.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="German Pest Control" data-ar="الشركة الألمانية">الشركة الألمانية</span>
+            </a>
+            <a href="case-study.html?project=egyptian-center" class="cl-item">
+              <img src="assets/portfolio_web/logo_egyptian-center.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Egyptian Center" data-ar="المركز المصري">المركز المصري</span>
+            </a>
+            <a href="case-study.html?project=badae-logistics" class="cl-item">
+              <img src="assets/portfolio_web/logo_badae-logistics.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Badae Logistics" data-ar="شركة بضائع للشحن">شركة بضائع للشحن</span>
+            </a>
+            <a href="case-study.html?project=hawawshi-el-rayyan" class="cl-item">
+              <img src="assets/portfolio_web/logo_hawawshi-el-rayyan.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Hawawshi El-Rayyan" data-ar="مطعم حواوشي الريان">مطعم حواوشي الريان</span>
+            </a>
+            <a href="case-study.html?project=sultan-almandy" class="cl-item">
+              <img src="assets/portfolio_web/logo_sultan-almandy.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Sultan Almandy" data-ar="مطعم سلطان المندي">مطعم سلطان المندي</span>
+            </a>
+            <a href="case-study.html?project=doaa-pharmacy" class="cl-item">
+              <img src="assets/portfolio_web/logo_doaa-pharmacy.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Doaa Pharmacy" data-ar="صيدلية د. دعاء">صيدلية د. دعاء</span>
+            </a>
+            <a href="case-study.html?project=fish-day" class="cl-item">
+              <img src="assets/portfolio_web/logo_fish-day.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Fish Day Seafood" data-ar="مطعم يوم السمك">مطعم يوم السمك</span>
+            </a>
+
+            <!-- 13 Clients Loop 2 (For seamless marquee) -->
+            <a href="case-study.html?project=azzam-real-estate" class="cl-item">
+              <img src="assets/portfolio_web/logo_azzam-real-estate.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Azzam Real Estate" data-ar="عزام للاستثمار العقاري">عزام للاستثمار العقاري</span>
+            </a>
+            <a href="case-study.html?project=egypt-builders" class="cl-item">
+              <img src="assets/portfolio_web/logo_egypt-builders.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Egypt Builders" data-ar="إيجيبت بيلدرز للمقاولات">إيجيبت بيلدرز للمقاولات</span>
+            </a>
+            <a href="case-study.html?project=next-academy" class="cl-item">
+              <img src="assets/portfolio_web/logo_next-academy.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Next Academy" data-ar="أكاديمية نكست للإدارة">أكاديمية نكست للإدارة</span>
+            </a>
+            <a href="case-study.html?project=ramadan-majlis" class="cl-item">
+              <img src="assets/portfolio_web/logo_ramadan-majlis.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Ramadan Majlis" data-ar="مجلس رمضان للفعاليات">مجلس رمضان للفعاليات</span>
+            </a>
+            <a href="case-study.html?project=smile-care-clinics" class="cl-item">
+              <img src="assets/portfolio_web/logo_smile-care-clinics.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Smile Care Clinics" data-ar="عيادات سمايل كير">عيادات سمايل كير</span>
+            </a>
+            <a href="case-study.html?project=the-smile-center" class="cl-item">
+              <img src="assets/portfolio_web/logo_the-smile-center.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="The Smile Dental" data-ar="مركز ذا سمايل للأسنان">مركز ذا سمايل للأسنان</span>
+            </a>
+            <a href="case-study.html?project=german-bugs-control" class="cl-item">
+              <img src="assets/portfolio_web/logo_german-bugs-control.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="German Pest Control" data-ar="الشركة الألمانية">الشركة الألمانية</span>
+            </a>
+            <a href="case-study.html?project=egyptian-center" class="cl-item">
+              <img src="assets/portfolio_web/logo_egyptian-center.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Egyptian Center" data-ar="المركز المصري">المركز المصري</span>
+            </a>
+            <a href="case-study.html?project=badae-logistics" class="cl-item">
+              <img src="assets/portfolio_web/logo_badae-logistics.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Badae Logistics" data-ar="شركة بضائع للشحن">شركة بضائع للشحن</span>
+            </a>
+            <a href="case-study.html?project=hawawshi-el-rayyan" class="cl-item">
+              <img src="assets/portfolio_web/logo_hawawshi-el-rayyan.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Hawawshi El-Rayyan" data-ar="مطعم حواوشي الريان">مطعم حواوشي الريان</span>
+            </a>
+            <a href="case-study.html?project=sultan-almandy" class="cl-item">
+              <img src="assets/portfolio_web/logo_sultan-almandy.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Sultan Almandy" data-ar="مطعم سلطان المندي">مطعم سلطان المندي</span>
+            </a>
+            <a href="case-study.html?project=doaa-pharmacy" class="cl-item">
+              <img src="assets/portfolio_web/logo_doaa-pharmacy.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Doaa Pharmacy" data-ar="صيدلية د. دعاء">صيدلية د. دعاء</span>
+            </a>
+            <a href="case-study.html?project=fish-day" class="cl-item">
+              <img src="assets/portfolio_web/logo_fish-day.jpg" class="cl-item-logo" alt="" />
+              <span class="client-name-badge" data-en="Fish Day Seafood" data-ar="مطعم يوم السمك">مطعم يوم السمك</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA BAND ===== -->
+    <section class="cta-band" aria-label="Call to action">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="cta-copy">
+            <h2 data-i18n="cta.title">Ready to Grow<br><span class="accent">Your Brand?</span></h2>
+            <p data-i18n="cta.desc">Let's build your next winning campaign. Free consultation — no commitment needed.</p>
+          </div>
+          <div class="cta-actions">
+            <a href="https://wa.me/201044107134" target="_blank" rel="noopener" class="btn-primary btn-lg" id="ctaBandBtn" data-i18n="cta.btnConsult">💬 Send WhatsApp Message</a>
+            <a href="tel:+201044107134" class="btn-ghost btn-lg" data-i18n="cta.btnCall">📞 Call +20 104 4107134</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section contact-section" aria-label="Contact us">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="contact-info-col">
+            <div class="section-label" data-i18n="contact.tag">Get In Touch</div>
+            <h2 class="section-title" data-i18n="contact.title">Let's Build<br>Something <span class="accent">Great</span></h2>
+            <p class="contact-desc" data-i18n="contact.desc">Fill out the form and our team will get back to you within 24 hours with a tailored proposal for your brand.</p>
+
+            <div class="contact-details">
+              <div class="cd-item">
+                <div class="cd-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.19 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+                </div>
+                <div>
+                  <p class="cd-label">Phone &amp; WhatsApp</p>
+                  <a href="tel:+201044107134" class="cd-value" dir="ltr" style="unicode-bidi: isolate;">+20 104 4107134</a>
+                </div>
+              </div>
+              <div class="cd-item">
+                <div class="cd-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.533 5.856L.057 23.885l6.188-1.448A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.65-.502-5.179-1.381l-.371-.22-3.674.859.9-3.574-.242-.381A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                </div>
+                <div>
+                  <p class="cd-label">WhatsApp</p>
+                  <a href="https://wa.me/201044107134" target="_blank" rel="noopener" class="cd-value">Chat with us on WhatsApp</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-socials">
+              <a href="https://www.instagram.com/egypt_creative_agency" target="_blank" rel="noopener" class="csoc" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/company/egypt-creative-agency" target="_blank" rel="noopener" class="csoc" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form-col">
+            <form id="contactForm" class="contact-form" novalidate aria-label="Contact form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cf-name" data-i18n="contact.labelName">Full Name *</label>
+                  <input type="text" id="cf-name" name="name" placeholder="Ahmed Mohamed" required autocomplete="name" />
+                  <span class="field-error" id="err-name" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="cf-email" data-i18n="contact.labelEmail">Email Address *</label>
+                  <input type="email" id="cf-email" name="email" placeholder="ahmed@company.com" required autocomplete="email" />
+                  <span class="field-error" id="err-email" role="alert"></span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cf-phone" data-i18n="contact.labelPhone">Phone Number *</label>
+                  <input type="tel" id="cf-phone" name="phone" placeholder="01XXXXXXXXX" required autocomplete="tel" />
+                  <span class="field-error" id="err-phone" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="cf-company" data-i18n="contact.labelCompany">Company / Brand</label>
+                  <input type="text" id="cf-company" name="company" placeholder="Your Company Name" autocomplete="organization" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="cf-message" data-i18n="contact.labelMsg">Tell Us About Your Brand *</label>
+                <textarea id="cf-message" name="message" rows="5" placeholder="Describe your brand, goals, and what you're looking to achieve..." required></textarea>
+                <span class="field-error" id="err-message" role="alert"></span>
+              </div>
+              <button type="submit" class="btn-submit" id="cf-submit">
+                <span class="btn-text" data-i18n="contact.btnSend">Send Message</span>
+                <span class="btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </span>
+              </button>
+            </form>
+            <div id="formDone" class="form-done" hidden role="status">
+              <div class="fd-icon" aria-hidden="true">✓</div>
+              <h3 data-i18n="contact.successTitle">Message Received!</h3>
+              <p data-i18n="contact.successDesc">Thank you for reaching out. Our team will contact you within 24 hours with a personalized proposal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-block">
+            <a href="#home" aria-label="Egypt Creative Marketing Agency Home">
+              <img src="assets/logo-white.png" alt="Egypt Creative Marketing Agency" class="footer-logo-img logo-img-white" />
+              <img src="assets/logo-black.png" alt="Egypt Creative Marketing Agency" class="footer-logo-img logo-img-black" />
+            </a>
+          </div>
+          <p data-i18n="footer.desc">Egypt's leading full-service digital marketing agency. We help ambitious brands grow beyond borders with strategy, creativity, and measurable results.</p>
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/egypt_creative_agency" target="_blank" rel="noopener" aria-label="Instagram" class="fsoc">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/egypt-creative-agency" target="_blank" rel="noopener" aria-label="LinkedIn" class="fsoc">in</a>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="fn-col">
+            <h4 data-i18n="nav.services">Services</h4>
+            <ul>
+              <li><a href="#services" data-i18n="svc.s1.title">Strategy &amp; Planning</a></li>
+              <li><a href="#services" data-i18n="svc.s2.title">Branding &amp; Design</a></li>
+              <li><a href="#services" data-i18n="svc.s3.title">Social Media</a></li>
+              <li><a href="#services" data-i18n="svc.s4.title">Content Production</a></li>
+              <li><a href="#services" data-i18n="svc.s5.title">Media Buying &amp; Performance</a></li>
+              <li><a href="#services" data-i18n="svc.s6.title">Public Relations</a></li>
+            </ul>
+          </div>
+          <div class="fn-col">
+            <h4 data-i18n="nav.about">Company</h4>
+            <ul>
+              <li><a href="#about" data-i18n="nav.about">About Us</a></li>
+              <li><a href="#work" data-i18n="nav.work">Our Work</a></li>
+              <li><a href="#team" data-i18n="nav.team">Meet the Team</a></li>
+              <li><a href="#contact" data-i18n="nav.contact">Careers</a></li>
+            </ul>
+          </div>
+          <div class="fn-col">
+            <h4 data-i18n="nav.contact">Contact</h4>
+            <ul>
+              <li><a href="tel:+201044107134">+20 104 4107134</a></li>
+              <li><a href="mailto:info@egyptcreative.com">info@egyptcreative.com</a></li>
+            </ul>
+            <div class="footer-newsletter">
+              <h4>Newsletter</h4>
+              <div class="fn-form">
+                <input type="email" id="fnEmail" placeholder="your@email.com" aria-label="Email for newsletter" />
+                <button id="fnBtn" aria-label="Subscribe to newsletter">→</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.rights">&copy; 2026 Egypt Marketing Agency. All Rights Reserved.</p>
+        <div class="fb-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js?v=20260904-v10000005"></script>
+</body>
+</html>

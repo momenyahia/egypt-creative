@@ -1,0 +1,87 @@
+# ============================================================
+# EGYPT CREATIVE — PRODUCTION APACHE CONFIGURATION (.htaccess)
+# ============================================================
+
+DirectoryIndex index.html index.php
+
+# 1. ROUTING & REWRITE RULES
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Route /api and /api/* to api.php
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^api$ api.php [L,QSA]
+  RewriteRule ^api/(.*)$ api.php [L,QSA]
+
+  # Route /admin to admin.html
+  RewriteRule ^admin$ admin.html [L]
+
+  # Route /case-study/slug to case-study.html?slug=slug
+  RewriteRule ^case-study/([a-zA-Z0-9_-]+)/?$ case-study.html?slug=$1 [L,QSA]
+</IfModule>
+
+# 2. SECURITY: BLOCK ACCESS TO SENSITIVE FILES & DATABASE
+<FilesMatch "^(database\.db|\.db|\.sqlite|\.sqlite3|data\.json|\.env|server\.js|reset-admin\.php|\.log|\.bak|\.sql|node_modules)">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order Allow,Deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Prevent viewing dotfiles
+<FilesMatch "^\.">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order Allow,Deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# 3. SECURITY: PREVENT DIRECTORY BROWSING
+Options -Indexes
+
+# 4. SECURITY & ZERO-CACHE HEADERS
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=(), interest-cohort=()"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' data: blob: https:; connect-src 'self'; frame-src 'self' https://www.youtube.com https://player.vimeo.com;"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+
+  # Strictly prevent caching of HTML/JS/CSS/PHP so updates apply instantly
+  <FilesMatch "\.(html|htm|php|js|css)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+</IfModule>
+
+# 5. GZIP COMPRESSION
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json
+</IfModule>
+
+# 6. STATIC ASSET CACHING (IMAGES ONLY)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg   "access plus 1 month"
+  ExpiresByType image/jpeg  "access plus 1 month"
+  ExpiresByType image/png   "access plus 1 month"
+  ExpiresByType image/webp  "access plus 1 month"
+  ExpiresByType image/avif  "access plus 1 month"
+  ExpiresByType text/css    "access plus 0 seconds"
+  ExpiresByType application/javascript "access plus 0 seconds"
+</IfModule>
